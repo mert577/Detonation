@@ -36,11 +36,11 @@ public class BombSweep : Bomb
 
             for (int i = 0; i < bulletCount; i++)
             {
-                float angle =  (i * (180 / bulletCount));
+                float angle =  (i * (180 / bulletCount))+90f;
                 GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
                 b.GetComponent<Projectile>().StartProjectile(angle);
 
-               angle =  180f+  (i * (180 / bulletCount));
+               angle =  180f+  (i * (180 / bulletCount))+90f;
                GameObject a = Instantiate(bullet, transform.position, Quaternion.identity);
                a.GetComponent<Projectile>().StartProjectile(angle);
                yield return new WaitForSeconds(burstInterval);
