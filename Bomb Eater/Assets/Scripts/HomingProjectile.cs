@@ -11,7 +11,9 @@ public class HomingProjectile : Projectile
 
     public float accelerationForce;
 
-    GameObject player;
+
+    [SerializeField]
+     GameObject player;
 
 
     public override void StartProjectile(float angle, float speedMultip = 1)
@@ -42,7 +44,7 @@ public class HomingProjectile : Projectile
         Vector2 dir = transform.position - player.transform.position;
         dir.Normalize();
 
-        rb.AddForce(accelerationForce * -dir*Random.Range(.5f,1.5f));
+        rb.AddForce(accelerationForce * -dir);  //*  Random.Range(.5f,1.5f));
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, speed* speedModifier);
 
 

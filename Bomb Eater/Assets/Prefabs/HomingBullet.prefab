@@ -161,4 +161,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   particles: {fileID: 198039705023584415, guid: e29e8300991a6c24e9954bc362a2be5e, type: 3}
-  accelerationForce: 3.5
+  accelerationForce: 7.95

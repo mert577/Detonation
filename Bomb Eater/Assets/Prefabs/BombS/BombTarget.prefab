@@ -245,7 +245,7 @@ MonoBehaviour:
   angleOffset: 0
   bulletCount: 3
   bulletSpread: 30
-  spreadRandomness: 1
+  spreadRandomness: 0
   speedRandomness: 0
 --- !u!114 &-2364473524827119080
 MonoBehaviour:

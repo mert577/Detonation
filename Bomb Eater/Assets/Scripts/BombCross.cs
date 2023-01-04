@@ -27,7 +27,13 @@ public class BombCross : Bomb
                 yield return new WaitForSeconds(.05f);
             }
           
+       
             Destroy(this.gameObject);
         }
+
+
     }
+
+
+   
 }

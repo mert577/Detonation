@@ -583,9 +583,9 @@ MonoBehaviour:
   bullet: {fileID: 3685030776475696404, guid: 370971a3c198fef49a0e60fc13793dbb, type: 3}
   target: {fileID: 0}
   angleOffset: 0
-  bulletCount: 3
+  bulletCount: 5
   bulletSpread: 45.87
-  spreadRandomness: 1
+  spreadRandomness: 0.44
   speedRandomness: 0.3
 --- !u!114 &-2364473524827119080
 MonoBehaviour:
