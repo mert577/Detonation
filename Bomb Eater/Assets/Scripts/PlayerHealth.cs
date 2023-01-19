@@ -79,7 +79,10 @@ public class PlayerHealth : MonoBehaviour
             if (CurrentHealth <= 0)
             {
                 CurrentHealth = 0;
-                StartCoroutine(Death());
+                if(!isDead){
+                    StartCoroutine(Death());
+                }
+                   
             }
 
 
@@ -106,7 +109,11 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator Death() {
 
+       
+
         isDead = true;
+
+    
         GameObject p = Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(p, 5);
 
