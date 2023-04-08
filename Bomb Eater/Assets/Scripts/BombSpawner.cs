@@ -18,6 +18,9 @@ public class BombSpawner : MonoBehaviour
     public List<Bomb> extremeBombPool;
 
 
+
+    public Bounds bounds;
+
     public List<Bomb> bombsToSpawn;
 
     public static BombSpawner instance;
@@ -41,7 +44,12 @@ public class BombSpawner : MonoBehaviour
     void Start()
     {
         bombsToSpawn = easyBombPool;
-      
+
+     //   bounds.center = transform.position;
+      //  bounds.extents = transform.localScale- Vector3.one*.4f;
+       
+    
+    
     }
 
     // Update is called once per frame
@@ -94,7 +102,7 @@ public class BombSpawner : MonoBehaviour
         for (int i = 0; i < Random.Range(minWaveSize, maxWaveSize + 1); i++)
         {
             Bomb randomBomb = bombsToSpawn[Random.Range(0, bombsToSpawn.Count)];
-            Vector2 randomPos = new Vector2(Random.Range(-6, 6f), Random.Range(-7f, 7f));
+            Vector2 randomPos = UtilityClass.GetRandomPointInBounds(bounds);
             Instantiate(randomBomb, randomPos, Quaternion.identity);
 
 

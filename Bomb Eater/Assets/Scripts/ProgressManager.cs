@@ -58,25 +58,25 @@ public class ProgressManager : MonoBehaviour
     {
         Difficulty dif = Difficulty.Easy;
 
-        if (waveNumber < 8)
+        if (waveNumber < 9)
         {
             dif = Difficulty.Easy;
             movementChance = 0;
             Projectile.speedModifier = 1f;
         }
-        else if(waveNumber>=8&& waveNumber < 16)
+        else if(waveNumber>=9& waveNumber < 18)
         {
             dif = Difficulty.Medium;
             movementChance = .35f;
             Projectile.speedModifier = 1.1f;
         }
-        else if (waveNumber >= 16 && waveNumber < 24)
+        else if (waveNumber >= 18 && waveNumber < 25)
         {
             dif = Difficulty.Hard;
             movementChance = .65f;
             Projectile.speedModifier = 1.25f;
         }
-        else if (waveNumber >= 24)
+        else if (waveNumber >= 25)
         {
             dif = Difficulty.Extreme;
             movementChance = .85f;

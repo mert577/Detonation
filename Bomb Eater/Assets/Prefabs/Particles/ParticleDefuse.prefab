@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 198039705023584415}
   - component: {fileID: 198039705023584414}
   - component: {fileID: 5246305765387539663}
+  - component: {fileID: -8686134738274656527}
   m_Layer: 0
   m_Name: ParticleDefuse
   m_TagString: Untagged
@@ -4929,8 +4930,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1153a844e391e9f4dbbb677a82327f22, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.707
-  m_Pitch: 1
+  m_Volume: 0.57
+  m_Pitch: 1.4
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -5004,6 +5005,31 @@ AudioSource:
     - serializedVersion: 3
       time: 0
       value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!169 &-8686134738274656527
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198039705023584409}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.43956342
       inSlope: 0
       outSlope: 0
       tangentMode: 0

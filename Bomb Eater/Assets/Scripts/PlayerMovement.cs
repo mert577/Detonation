@@ -67,6 +67,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(GameManager.instance.gameState == GameState.Playing)
+        {
+            control = true;
+        }
+        else
+        {
+            control = false;
+        }
+
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         input = Vector2.ClampMagnitude(input, 1f);
 
