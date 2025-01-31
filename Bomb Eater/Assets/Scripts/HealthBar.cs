@@ -8,6 +8,7 @@ public class HealthBar : MonoBehaviour
 
 
     public List<Image> heartIcons;
+    public List<Vector2> heartIconPositions;
 
     [SerializeField] PlayerHealth pHealth;
 
@@ -20,13 +21,17 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        heartIconPositions = new List<Vector2>();
+        for (int i = 0; i < heartIcons.Count; i++)
+        {
+            heartIconPositions.Add(heartIcons[i].rectTransform.anchoredPosition);
+        }   
     }
 
     // Update is called once per frame
     void Update()
     {
-        int countToSetInActive = pHealth.MaxHealth - pHealth.CurrentHealth;
+        int countToSetInActive = pHealth.MaxHealth - pHealth.GetCurrentHealth();
 
         if (countToSetInActive <= 1)
         {
@@ -50,7 +55,13 @@ public class HealthBar : MonoBehaviour
             {
                 heartIcons[i].color = activeColor;
             }
+
+            
+            
         }
+
+
+
     }
 
 

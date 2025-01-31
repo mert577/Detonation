@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 public class PlayerHealth : MonoBehaviour
 {
 
     public int MaxHealth;
-    public int CurrentHealth;
+    private int CurrentHealth;
 
     public GameObject damageParticles;
     public GameObject deathParticles;
+
+
+    public UnityEvent OnHeal = new UnityEvent();
 
 
 
@@ -24,6 +28,12 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         CurrentHealth = MaxHealth;
+    }
+
+
+    public int GetCurrentHealth()
+    {
+        return CurrentHealth;
     }
 
     // Update is called once per frame
@@ -41,6 +51,8 @@ public class PlayerHealth : MonoBehaviour
         {
             CurrentHealth += 1;
         }
+
+        OnHeal.Invoke();
     }
 
     private void LateUpdate()

@@ -49,7 +49,7 @@ public class SceneLoadManager : MonoBehaviour
         void S()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            ExitScene.SetActive(false);
+          // ExitScene.SetActive(false);
         }
         
 

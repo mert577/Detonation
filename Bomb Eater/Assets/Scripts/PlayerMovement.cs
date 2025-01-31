@@ -177,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
         rb.velocity =  dashForce * direction;
-        Debug.Log(rb.velocity);
+//        Debug.Log(rb.velocity);
          var em = trailParticles.emission;
          em.enabled =false;
         rb.drag = dashDrag;
