@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class PlayerGraphics : MonoBehaviour
@@ -26,6 +27,7 @@ public class PlayerGraphics : MonoBehaviour
         healthAnimation.SetActive(true);
         healthAnimation.transform.position = transform.position;
         healthAnimation.transform.DOMoveY(transform.position.y+ moveAmount,animationTime).SetEase(Ease.OutQuint).OnComplete( () => healthAnimation.SetActive(false));
+        healthAnimation.GetComponent<TextMeshPro>().DOFade(0, animationTime);
         audioSource.PlayOneShot(healSound);
         
     }

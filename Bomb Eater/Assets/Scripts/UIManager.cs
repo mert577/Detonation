@@ -13,12 +13,17 @@ public class UIManager : MonoBehaviour
     public TextMeshPro waveText;
     public TextMeshPro healText;
 
-    public
+    [SerializeField] TextMeshPro titleText;
+    [SerializeField] float titleLoopTime;
+    [SerializeField] float titleScaleAmount;
 
 
     public GameObject healthBar;
 
     public static UIManager instance;
+
+
+
     private void Awake()
     {
         if (instance != null)
@@ -32,12 +37,18 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         healthBar.SetActive(false);
+        AnimateTitleText();
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateScoreText(); 
+    }
+
+    
+    public void AnimateTitleText(){
+        titleText.transform.DOScale(titleScaleAmount, titleLoopTime).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
     }
 
     public void UpdateScoreText()
