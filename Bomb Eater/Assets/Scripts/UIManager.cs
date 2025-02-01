@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     public TextMeshPro waveText;
     public TextMeshPro healText;
 
+    public
+
 
     public GameObject healthBar;
 

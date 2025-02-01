@@ -27,8 +27,7 @@ public class ScreenManager : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
 
-        startResouliton = new Vector2Int(Screen.currentResolution.width, Screen.currentResolution.height);
-
+       
 
     }
     // Start is called before the first frame update
@@ -46,7 +45,7 @@ public class ScreenManager : MonoBehaviour
             if (isFullscreen)
             {
                 isFullscreen = false;
-                Screen.SetResolution((int)startResouliton.x, (int)startResouliton.y, false);
+                ReturnFromFullscreen();
             }
             else
             {
@@ -56,12 +55,30 @@ public class ScreenManager : MonoBehaviour
         }
     }
 
-    //sets to full screen and sets the aspect ratio to 4:3
+    
     public void SetFullscreen()
     {
-        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
-        Camera.main.aspect = 4f / 3f;
+        Resolution currentRes = Screen.currentResolution;
+        FullScreenMode fullScreenMode = FullScreenMode.ExclusiveFullScreen;
 
+        Screen.SetResolution(currentRes.width, currentRes.height, fullScreenMode);
+    }
+
+
+    public void ReturnFromFullscreen()
+    {
+        isFullscreen = false;
+        //if screen is 4K the window size will be 1200x900
+        if(Screen.currentResolution.width == 3840 && Screen.currentResolution.height == 2160)
+        {
+            Screen.SetResolution(1200, 900, FullScreenMode.Windowed);
+        }
+        else
+        {
+            Screen.SetResolution(800, 600, FullScreenMode.Windowed);
+        }
+      
+        
     }
 
 
