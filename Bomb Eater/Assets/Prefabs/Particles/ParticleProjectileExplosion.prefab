@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 198039705023584412}
   - component: {fileID: 198039705023584415}
   - component: {fileID: 198039705023584414}
+  - component: {fileID: 367220734830334030}
   m_Layer: 0
   m_Name: ParticleProjectileExplosion
   m_TagString: Untagged
@@ -4888,3 +4889,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &367220734830334030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198039705023584409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a2d18088bf371459658f15b9bab706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfDestructTime: 1
+  animationTime: 0
+  animationType: 0
+  objectToSpawn: {fileID: 0}

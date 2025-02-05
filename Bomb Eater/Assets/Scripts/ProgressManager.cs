@@ -18,6 +18,8 @@ public class ProgressManager : MonoBehaviour
 
     public float movementChance;
 
+    public float waveSpawnTimeModifier;
+
     private void Awake()
     {
         if (instance != null)
@@ -58,29 +60,33 @@ public class ProgressManager : MonoBehaviour
     {
         Difficulty dif = Difficulty.Easy;
 
-        if (waveNumber < 9)
+        if (waveNumber < 15)
         {
             dif = Difficulty.Easy;
             movementChance = 0;
             Projectile.speedModifier = 1f;
+            waveSpawnTimeModifier = 1;
         }
-        else if(waveNumber>=9& waveNumber < 18)
+        else if(waveNumber>=15& waveNumber < 25)
         {
             dif = Difficulty.Medium;
             movementChance = .35f;
             Projectile.speedModifier = 1.1f;
+            waveSpawnTimeModifier = 1f;
         }
-        else if (waveNumber >= 18 && waveNumber < 25)
+        else if (waveNumber >= 25 && waveNumber < 40)
         {
             dif = Difficulty.Hard;
             movementChance = .65f;
             Projectile.speedModifier = 1.25f;
+            waveSpawnTimeModifier = .75f;
         }
-        else if (waveNumber >= 25)
+        else if (waveNumber >= 40)
         {
             dif = Difficulty.Extreme;
             movementChance = .85f;
             Projectile.speedModifier = 1.4f;
+            waveSpawnTimeModifier = .6f;
         }
 
         if(dif == Difficulty.Hard)
@@ -94,11 +100,6 @@ public class ProgressManager : MonoBehaviour
 
     }
 }
-
-
-
-
-
 
 
 public enum Difficulty

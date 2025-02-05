@@ -14,6 +14,9 @@ public class PlayerHealth : MonoBehaviour
 
 
     public UnityEvent OnHeal = new UnityEvent();
+    public UnityEvent OnDamage = new UnityEvent();
+
+    public UnityEvent OnDeath = new UnityEvent();
 
 
 
@@ -136,7 +139,9 @@ public class PlayerHealth : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        SceneLoadManager.instance.OnReloadScene();
+   //     SceneLoadManager.instance.OnReloadScene();
         //call death event
+
+        OnDeath.Invoke();
     }
 }

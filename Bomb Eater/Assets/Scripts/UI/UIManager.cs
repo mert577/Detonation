@@ -13,9 +13,13 @@ public class UIManager : MonoBehaviour
     public TextMeshPro waveText;
     public TextMeshPro healText;
 
+    public TextMeshPro playPromptText;
+
     [SerializeField] TextMeshPro titleText;
     [SerializeField] float titleLoopTime;
     [SerializeField] float titleScaleAmount;
+
+    [SerializeField] GameObject deathScreen;
 
 
     public GameObject healthBar;
@@ -49,14 +53,23 @@ public class UIManager : MonoBehaviour
     
     public void AnimateTitleText(){
         titleText.transform.DOScale(titleScaleAmount, titleLoopTime).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+
+        //fade in out play prompt text
+        
+        playPromptText.DOFade(0, 1).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
     }
 
     public void UpdateScoreText()
     {
-        scoreText.text = "Score:\n" + GameManager.instance.Score;
+        scoreText.text = "Score:\n" + GameManager.instance.score;
         highScoreText.text = "Highscore:\n" + PlayerPrefs.GetInt("Highscore");
         waveText.text = "Wave " + ProgressManager.instance.waveNumber;
         healText.text = "Bombs Until Heal:\n" + (35-(ProgressManager.instance.bombsDefused % 35));
+    }
+
+    public void ActivateDeathScreen()
+    {
+        deathScreen.SetActive(true);
     }
 
 

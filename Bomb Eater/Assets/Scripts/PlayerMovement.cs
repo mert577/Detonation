@@ -51,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
     Vector2 originalSize;
     public ParticleSystem trailParticles;
 
+    [SerializeField]
+    bool lastInputWasGamepad = false;
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -67,6 +71,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+            lastInputWasGamepad = false;
+        }
+        else if(Input.GetKeyDown(KeyCode.Joystick1Button3)){
+            lastInputWasGamepad = true;
+        }
+
 
         if(GameManager.instance.gameState == GameState.Playing)
         {
@@ -86,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         if (!dashing)
         {
            
-            if (Input.GetKeyDown(KeyCode.Space) && dashCoolDownTimer  <= 0)
+            if (Input.GetButtonDown("Jump") && dashCoolDownTimer  <= 0)
             {
                 StartCoroutine(Dash());
             }
@@ -105,6 +117,8 @@ public class PlayerMovement : MonoBehaviour
         {
             playerGraphics.GetComponent<SpriteRenderer>().color = originalColor;
         }
+
+        
         
     }
 
@@ -120,7 +134,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 input = Vector2.zero;
             }
-            rb.AddForce(accelerationForce * input);
+            float accelerationForceModifier = 1f;
+            if (lastInputWasGamepad)
+            {
+               // accelerationForceModifier = 2f;
+            }
+            rb.AddForce(accelerationForce * input*accelerationForceModifier);
             rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
            
         }

@@ -39,7 +39,7 @@ public class HomingProjectile : Projectile
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector2 dir = transform.position - player.transform.position;
         dir.Normalize();

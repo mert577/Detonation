@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3685030776475696407}
   - component: {fileID: 1840306531380475191}
   - component: {fileID: 3969487543001643198}
+  - component: {fileID: 5899563476096620123}
   m_Layer: 7
   m_Name: SlowBulletBig
   m_TagString: Untagged
@@ -31,8 +32,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.7338, y: -0.4450786, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.04, y: 1.04, z: 0.52}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: b16b9c14ddf3b144782151f21889e5d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24e2dc075b0293f4f8d49aa0c76b229f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,7 +166,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 2.91, y: 1.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -186,3 +187,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b644bacca575a1c4cbf8b9a392871b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5899563476096620123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3685030776475696404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a2d18088bf371459658f15b9bab706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfDestructTime: 0.5
+  animationTime: 0.2
+  animationType: 1
