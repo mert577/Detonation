@@ -21,8 +21,10 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject deathScreen;
 
+    [SerializeField] GameObject leaderboardScreen;
 
     public GameObject healthBar;
+
 
     public static UIManager instance;
 
@@ -65,6 +67,11 @@ public class UIManager : MonoBehaviour
         highScoreText.text = "Highscore:\n" + PlayerPrefs.GetInt("Highscore");
         waveText.text = "Wave " + ProgressManager.instance.waveNumber;
         healText.text = "Bombs Until Heal:\n" + (35-(ProgressManager.instance.bombsDefused % 35));
+    }
+
+    public void ActivateLeaderboardScreen()
+    {
+        leaderboardScreen.SetActive(true);
     }
 
     public void ActivateDeathScreen()

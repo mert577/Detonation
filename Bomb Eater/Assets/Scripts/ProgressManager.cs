@@ -72,21 +72,21 @@ public class ProgressManager : MonoBehaviour
             dif = Difficulty.Medium;
             movementChance = .35f;
             Projectile.speedModifier = 1.1f;
-            waveSpawnTimeModifier = 1f;
+            waveSpawnTimeModifier = .9f;
         }
-        else if (waveNumber >= 25 && waveNumber < 40)
+        else if (waveNumber >= 25 && waveNumber < 35)
         {
             dif = Difficulty.Hard;
             movementChance = .65f;
             Projectile.speedModifier = 1.25f;
-            waveSpawnTimeModifier = .75f;
+            waveSpawnTimeModifier = .85f;
         }
         else if (waveNumber >= 40)
         {
             dif = Difficulty.Extreme;
             movementChance = .85f;
             Projectile.speedModifier = 1.4f;
-            waveSpawnTimeModifier = .6f;
+            waveSpawnTimeModifier = .75f;
         }
 
         if(dif == Difficulty.Hard)

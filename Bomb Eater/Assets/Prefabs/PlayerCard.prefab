@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 161.89752, y: 0}
-  m_SizeDelta: {x: 294.7233, y: 50}
+  m_AnchoredPosition: {x: 225.6318, y: 0}
+  m_SizeDelta: {x: 422.1919, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7524619102435969118
 CanvasRenderer:
@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 4098426063578772694}
   - component: {fileID: 7915535667630786010}
   - component: {fileID: 6920678347787820697}
+  - component: {fileID: 6989161645855358848}
   m_Layer: 5
   m_Name: PlayerCard
   m_TagString: Untagged
@@ -159,7 +160,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4206884936134199329}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -211,6 +212,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6989161645855358848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4206884936134199329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a453b39aa8725784f98d89e6862edaf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNameText: {fileID: 6260421876132133915}
+  playerScoreText: {fileID: 3660603873263058204}
 --- !u!1 &8690599829901136821
 GameObject:
   m_ObjectHideFlags: 0

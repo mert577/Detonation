@@ -94,8 +94,16 @@ public class BombSpawner : MonoBehaviour
     IEnumerator SpawnBombWave()
     {
 
+        int waveNumber = ProgressManager.instance.waveNumber;
 
-        waitTime = waveWaitTime* ProgressManager.instance.waveSpawnTimeModifier + Random.Range(-.2f, .2f);
+        int waveNumberMod = waveNumber % 7;
+        
+        float waveNumberSpawnTimeModifier = 1;
+        if(waveNumberMod >= 5){
+            waveNumberSpawnTimeModifier =.75f;
+        }
+
+        waitTime = waveWaitTime* ProgressManager.instance.waveSpawnTimeModifier* waveNumberSpawnTimeModifier + Random.Range(-.2f, .2f);
         timer = waitTime;
         ProgressManager.instance.waveNumber += 1;
         CalculateBombPool();
