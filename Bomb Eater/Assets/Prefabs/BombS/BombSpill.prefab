@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: b16b9c14ddf3b144782151f21889e5d1, type: 3}
-  m_Color: {r: 0.15377119, g: 0.030754237, b: 0.191, a: 1}
+  m_Color: {r: 0.29518887, g: 0.28235137, b: 0.4433962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: -8268804766384723867}
   - component: {fileID: 4128351145603411520}
   m_Layer: 6
-  m_Name: BombWave
+  m_Name: BombSpill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +338,8 @@ MonoBehaviour:
   setToExplode: 0
   DOTObject: {fileID: 198039705023584409, guid: 4814f6a9efb566349add45d12ce8927f, type: 3}
   length: 8
-  numberOfArms: 6
-  timeBetweenRings: 0.13
-  resolutionIncreasePerRing: 6
-  lockedToPlayer: 0
+  numberOfArms: 1
+  timeBetweenRings: 0.1
+  resolutionIncreasePerRing: 0
+  lockedToPlayer: 1
+  distanceBetweenRings: 1.5

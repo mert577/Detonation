@@ -82,7 +82,7 @@ public class PlayerHealth : MonoBehaviour
             SetTimeScale(0f);
             yield return new WaitForSecondsRealtime(.1f);
             SetTimeScale(1f);
-
+            transform.GetChild(0).DORewind();
             transform.GetChild(0).DOPunchScale(Vector3.one * 3, 0.3f).OnComplete(() => transform.GetChild(0).localScale = Vector3.one);
             GetComponent<PlayerMovement>().LoseControl(0.2f);
             invincibilityTimer = invincibilityTime;

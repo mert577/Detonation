@@ -17,8 +17,17 @@ public class BombCross : Bomb
  
      [SerializeField] float resolutionIncreasePerRing = 0f;
 
+    [SerializeField]
+     bool lockedToPlayer = false;
+     [SerializeField]
+     float distanceBetweenRings = 1f;
+
     public override void Explode()
     {
+
+
+        Transform player = GameObject.Find("Player").transform;
+        Vector3 playerPos = player.position;
         base.Explode();
         StartCoroutine(DotSpawn());
 
@@ -30,8 +39,18 @@ public class BombCross : Bomb
             {
                 float realNumberOfArms = numberOfArms + i*resolutionIncreasePerRing;
                 for (int arm =0; arm < Mathf.CeilToInt(realNumberOfArms); arm++ ){
-                Vector3 directionVector = Quaternion.Euler(0,0,(360f/Mathf.CeilToInt(realNumberOfArms))*arm) * new Vector2(1, 0);
-                GameObject a = Instantiate(DOTObject, transform.position+( directionVector*i), Quaternion.identity);
+
+
+                
+                Vector2 baseDirection = new Vector2(1,0);
+
+                if(lockedToPlayer){
+                    baseDirection = (playerPos- transform.position).normalized;
+                }
+
+                Vector3 directionVector = Quaternion.Euler(0,0,(360f/Mathf.CeilToInt(realNumberOfArms))*arm) * baseDirection;
+              
+                GameObject a = Instantiate(DOTObject, transform.position+( directionVector*i*distanceBetweenRings), Quaternion.identity);
 
                 }
 
