@@ -25,7 +25,7 @@ public class BombCross : Bomb
     public override void Explode()
     {
 
-
+        
         Transform player = GameObject.Find("Player").transform;
         Vector3 playerPos = player.position;
         base.Explode();

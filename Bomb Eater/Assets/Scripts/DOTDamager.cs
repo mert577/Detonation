@@ -10,6 +10,14 @@ public class DOTDamager : MonoBehaviour
     [SerializeField]
     float lifetime = 2.5f;
     // Start is called before the first frame update
+
+    [SerializeField]
+    float originalScale = 1;
+
+    void Awake()
+    {
+       originalScale = transform.localScale.x;
+    }
     void Start()
     {
         p = GetComponent<ParticleSystem>();
@@ -25,7 +33,7 @@ public class DOTDamager : MonoBehaviour
     IEnumerator OnSpawn()
     {
         transform.localScale = Vector2.zero;
-        transform.DOScale(Vector2.one * 4f, 0.1f).SetEase(Ease.InQuart);
+        transform.DOScale(Vector2.one * originalScale, 0.1f).SetEase(Ease.InQuart);
         yield return new WaitForSeconds(0.1f);
         var em = p.emission;
         em.enabled = true;

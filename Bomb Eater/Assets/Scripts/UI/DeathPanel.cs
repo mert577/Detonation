@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 public class DeathPanel : MonoBehaviour
 {
 
@@ -12,6 +13,15 @@ public class DeathPanel : MonoBehaviour
     public TextMeshProUGUI bombsDefusedText;
     public TextMeshProUGUI scoreText;
 
+    public RectTransform[] allElements;
+
+
+    public float timeBetweenElements = 0.1f;
+
+    public float punchScaleAmount =1.1f;
+
+    public float animationTime = 0.5f;
+
 
 
 
@@ -19,8 +29,17 @@ public class DeathPanel : MonoBehaviour
         timeSurvivedText.text = GameManager.instance.timeSurvived.ToString() +"s";
         bombsDefusedText.text = ProgressManager.instance.bombsDefused.ToString();
         scoreText.text = GameManager.instance.score.ToString();
+        StartCoroutine(_());
 
+        IEnumerator _(){
 
+            foreach (var item in allElements)
+            {
+               item.DOPunchScale(Vector3.one * punchScaleAmount, animationTime, 1, 0); 
+                yield return new WaitForSeconds(timeBetweenElements);
+            }
+        
+        }
     }
 
 

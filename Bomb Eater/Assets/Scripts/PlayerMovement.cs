@@ -166,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Dash()
     {
 
-        GetComponent<PlayerHealth>().invincibilityTimer = dashTime+0.1f;
+        GetComponent<PlayerHealth>().invincibilityTimer = dashTime+0.12f;
         dashing = true;
 
         dashesLeft--;

@@ -13,6 +13,8 @@ public class Bomb : MonoBehaviour
     public GameObject explodeParticle;
     public GameObject defuseParticle;
 
+
+
     GameObject graphics;
 
     Transform shadow;
@@ -95,7 +97,7 @@ public class Bomb : MonoBehaviour
         blinking = true;
         Color c = Color.white;
         graphics.transform.DOScale(graphics.transform.localScale * 1.2f, blinkTime).SetEase(Ease.OutQuad);
-        graphics.transform.DOShakePosition(blinkTime, .15f, 15);
+        graphics.transform.DOShakePosition(blinkTime, .25f, 15);
         graphics.GetComponent<SpriteRenderer>().DOColor(Color.white, blinkTime).SetEase(Ease.OutQuad);
     }
 
@@ -104,7 +106,8 @@ public class Bomb : MonoBehaviour
     {
         setToExplode = true;
         Camera.main.DOShakePosition(.25f, .3f).OnComplete(() => Camera.main.transform.position = new Vector3(0, 0, -10));
-        
+        graphics.SetActive(false);
+        GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<BombMovement>().StopMoving();
         GameObject p = Instantiate(explodeParticle, transform.position, Quaternion.identity);
         Destroy(p, 1f);

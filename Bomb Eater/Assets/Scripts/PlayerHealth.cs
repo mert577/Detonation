@@ -79,11 +79,13 @@ public class PlayerHealth : MonoBehaviour
             CurrentHealth -= 1;
             gotDamagedAlready = true;
 
-            SetTimeScale(0f);
-            yield return new WaitForSecondsRealtime(.1f);
-            SetTimeScale(1f);
+            SetTimeScale(0.125f);
+           
+          
             transform.GetChild(0).DORewind();
-            transform.GetChild(0).DOPunchScale(Vector3.one * 3, 0.3f).OnComplete(() => transform.GetChild(0).localScale = Vector3.one);
+            transform.GetChild(0).DOPunchScale(Vector3.one * .8f, 0.3f);
+            //time scale
+            
             GetComponent<PlayerMovement>().LoseControl(0.2f);
             invincibilityTimer = invincibilityTime;
             invincible = invincibilityTimer > 0;
@@ -91,6 +93,9 @@ public class PlayerHealth : MonoBehaviour
 
             GameObject p = Instantiate(damageParticles, transform.position, Quaternion.identity);
             Destroy(p, 1);
+             yield return new WaitForSecondsRealtime(.35f);
+            SetTimeScale(1f);
+             transform.GetChild(0).localScale = Vector3.one;
             if (CurrentHealth <= 0)
             {
                 CurrentHealth = 0;

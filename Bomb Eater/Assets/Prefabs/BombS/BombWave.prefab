@@ -336,9 +336,10 @@ MonoBehaviour:
   explodeParticle: {fileID: 198039705023584409, guid: e29e8300991a6c24e9954bc362a2be5e, type: 3}
   defuseParticle: {fileID: 198039705023584409, guid: 16cce1f81a1897a49af35c92853ab614, type: 3}
   setToExplode: 0
-  DOTObject: {fileID: 198039705023584409, guid: 4814f6a9efb566349add45d12ce8927f, type: 3}
+  DOTObject: {fileID: 3685030776475696404, guid: f873919932dd3944cab049c1a026e82c, type: 3}
   length: 8
   numberOfArms: 6
   timeBetweenRings: 0.13
   resolutionIncreasePerRing: 6
   lockedToPlayer: 0
+  distanceBetweenRings: 1

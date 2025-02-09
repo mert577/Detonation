@@ -17,22 +17,29 @@ public class BombDefuser : MonoBehaviour
     public GameObject target;
 
     public int defusedBombs = 0;
+
+
+    public float defuseRange = 2.5f;
+
+    [SerializeField]
+    SpriteRenderer rangeSprite;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rangeSprite.transform.localScale = new Vector3(defuseRange*2, defuseRange*2, 1);
     }
 
     // Update is called once per frame
     void Update()
     {
-       var Colliders=   Physics2D.OverlapCircleAll(transform.position, 2.5f,layer);
+       var Colliders=   Physics2D.OverlapCircleAll(transform.position, defuseRange,layer);
         if (Colliders.Length<=0)
         {
             closestBomb = null;
             target.SetActive(false);
+            target.transform.position = transform.position;
         }
         else
         {
@@ -40,7 +47,7 @@ public class BombDefuser : MonoBehaviour
             List<Collider2D> cols = Colliders.ToList();
             cols = cols.OrderBy(x => Vector2.Distance(transform.position, x.transform.position)).ToList();
             closestBomb = cols[0].transform;
-            target.transform.position = closestBomb.position;
+            target.transform.DOMove(closestBomb.position, 0.25f).SetEase(Ease.OutQuint);
 
             Vector2 away = closestBomb.transform.position - transform.position;
             away.Normalize();
