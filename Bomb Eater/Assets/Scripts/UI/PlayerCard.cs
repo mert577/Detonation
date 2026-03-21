@@ -4,9 +4,8 @@ using UnityEngine;
 using TMPro;
 public class PlayerCard : MonoBehaviour
 {
-    
+
     public TextMeshProUGUI playerNameText;
     public TextMeshProUGUI playerScoreText;
-
 
 }

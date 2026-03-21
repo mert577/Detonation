@@ -14,7 +14,6 @@ public class BombCross : Bomb
     [SerializeField]
     float timeBetweenRings = .05f;
 
- 
      [SerializeField] float resolutionIncreasePerRing = 0f;
 
     [SerializeField]
@@ -25,7 +24,6 @@ public class BombCross : Bomb
     public override void Explode()
     {
 
-        
         Transform player = GameObject.Find("Player").transform;
         Vector3 playerPos = player.position;
         base.Explode();
@@ -33,15 +31,12 @@ public class BombCross : Bomb
 
         IEnumerator DotSpawn()
         {
-           
 
             for(int i = 0; i < length; i++)
             {
                 float realNumberOfArms = numberOfArms + i*resolutionIncreasePerRing;
                 for (int arm =0; arm < Mathf.CeilToInt(realNumberOfArms); arm++ ){
 
-
-                
                 Vector2 baseDirection = new Vector2(1,0);
 
                 if(lockedToPlayer){
@@ -49,23 +44,17 @@ public class BombCross : Bomb
                 }
 
                 Vector3 directionVector = Quaternion.Euler(0,0,(360f/Mathf.CeilToInt(realNumberOfArms))*arm) * baseDirection;
-              
+
                 GameObject a = Instantiate(DOTObject, transform.position+( directionVector*i*distanceBetweenRings), Quaternion.identity);
 
                 }
 
-           
-
                 yield return new WaitForSeconds(timeBetweenRings);
             }
-          
-       
+
             Destroy(this.gameObject);
         }
 
-
     }
 
-
-   
 }

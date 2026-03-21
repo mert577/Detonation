@@ -5,9 +5,6 @@ using UnityEngine;
 public class MissileSpawner : MonoBehaviour
 {
 
-
-    
-
     [SerializeField]
     Missile missilePrefab;
 
@@ -24,19 +21,8 @@ public class MissileSpawner : MonoBehaviour
         instance = this;
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-
 
     public void StartSpawning()
     {
@@ -64,7 +50,6 @@ public class MissileSpawner : MonoBehaviour
         }
 
     }
-
 
     void SpawnMissile()
     {
@@ -95,7 +80,6 @@ public class MissileSpawner : MonoBehaviour
             randomPos.x = Random.Range(-8, 9);
             missileDirection = Vector2.down;
         }
-
 
         Missile m=   Instantiate(missilePrefab, randomPos, Quaternion.identity);
         m.SetDirection(missileDirection);

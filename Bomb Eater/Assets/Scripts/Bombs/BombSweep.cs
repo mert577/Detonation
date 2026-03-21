@@ -5,7 +5,6 @@ using UnityEngine;
 public class BombSweep : Bomb
 {
 
-
     public GameObject bullet;
 
     public int bulletCount;
@@ -23,16 +22,10 @@ public class BombSweep : Bomb
         base.Explode();
         StartCoroutine(explosion());
 
-
-
-
-
     }
-
 
     IEnumerator explosion()
     {
-        
 
             for (int i = 0; i < bulletCount; i++)
             {
@@ -46,9 +39,6 @@ public class BombSweep : Bomb
                yield return new WaitForSeconds(burstInterval);
             }
 
-
-           
-        
         Destroy(gameObject);
     }
 }

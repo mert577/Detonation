@@ -5,7 +5,6 @@ using UnityEngine;
 public class BombBurst : Bomb
 {
 
-
     public GameObject bullet;
 
     public int bulletCount;
@@ -23,12 +22,7 @@ public class BombBurst : Bomb
         base.Explode();
         StartCoroutine(explosion());
 
-
-
-
-       
     }
-
 
     IEnumerator explosion()
     {
@@ -40,7 +34,6 @@ public class BombBurst : Bomb
                 GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
                 b.GetComponent<Projectile>().StartProjectile(angle);
             }
-
 
             yield return new WaitForSeconds(burstInterval);
         }

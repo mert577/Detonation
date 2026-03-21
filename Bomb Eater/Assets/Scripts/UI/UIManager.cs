@@ -7,7 +7,6 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
 
-
     public TextMeshPro scoreText;
     public TextMeshPro highScoreText;
     public TextMeshPro waveText;
@@ -25,10 +24,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject healthBar;
 
-
     public static UIManager instance;
-
-
 
     private void Awake()
     {
@@ -49,15 +45,14 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateScoreText(); 
+        UpdateScoreText();
     }
 
-    
     public void AnimateTitleText(){
         titleText.transform.DOScale(titleScaleAmount, titleLoopTime).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
 
         //fade in out play prompt text
-        
+
         playPromptText.DOFade(0, 1).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
     }
 
@@ -78,7 +73,6 @@ public class UIManager : MonoBehaviour
     {
         deathScreen.SetActive(true);
     }
-
 
     public void ActivateHealthBar()
     {

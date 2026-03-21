@@ -6,11 +6,9 @@ using DG.Tweening;
 public class Missile : MonoBehaviour
 {
 
-
     SpriteRenderer sr;
     [SerializeField] Vector2 direction;
     [SerializeField] Projectile missile;
-
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +18,6 @@ public class Missile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public void SetDirection(Vector2 dir)
     {
@@ -42,4 +35,3 @@ public class Missile : MonoBehaviour
 
     }
 }
-

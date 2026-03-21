@@ -12,13 +12,10 @@ public class PlayerHealth : MonoBehaviour
     public GameObject damageParticles;
     public GameObject deathParticles;
 
-
     public UnityEvent OnHeal = new UnityEvent();
     public UnityEvent OnDamage = new UnityEvent();
 
     public UnityEvent OnDeath = new UnityEvent();
-
-
 
     public float invincibilityTime;
     public float invincibilityTimer;
@@ -33,7 +30,6 @@ public class PlayerHealth : MonoBehaviour
         CurrentHealth = MaxHealth;
     }
 
-
     public int GetCurrentHealth()
     {
         return CurrentHealth;
@@ -45,11 +41,9 @@ public class PlayerHealth : MonoBehaviour
         HandleInvincibility();
     }
 
-
-
     public void Heal()
     {
-      
+
         if (CurrentHealth < MaxHealth)
         {
             CurrentHealth += 1;
@@ -74,17 +68,15 @@ public class PlayerHealth : MonoBehaviour
 
         IEnumerator _()
         {
-            
 
             CurrentHealth -= 1;
             gotDamagedAlready = true;
 
             SetTimeScale(0.125f);
-           
-          
+
             GetComponent<PlayerGraphics>().PlayHurtAnimation();
             //time scale
-            
+
             GetComponent<PlayerMovement>().LoseControl(0.2f);
             invincibilityTimer = invincibilityTime;
             invincible = invincibilityTimer > 0;
@@ -101,13 +93,10 @@ public class PlayerHealth : MonoBehaviour
                 if(!isDead){
                     StartCoroutine(Death());
                 }
-                   
+
             }
 
-
         }
-
-
 
     }
 
@@ -122,20 +111,14 @@ public class PlayerHealth : MonoBehaviour
         invincibilityTimer -= Time.deltaTime;
         invincibilityTimer = Mathf.Clamp(invincibilityTimer, 0, 23123);
 
-       
-
     }
 
     IEnumerator Death() {
 
-       
-
         isDead = true;
 
-    
         GameObject p = Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(p, 5);
-
 
         GetComponent<PlayerGraphics>().graphicsObject.SetActive(false);
         GetComponent<PlayerMovement>().enabled = false;

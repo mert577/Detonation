@@ -5,23 +5,18 @@ using UnityEngine;
 public class BombMovement : MonoBehaviour
 {
 
-
     Rigidbody2D rb;
     [SerializeField] float speed;
     [SerializeField] bool isMoving;
 
-
     [SerializeField] Vector2 vel;
 
-
-    
     // Start is called before the first frame update
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
 
     public void StartMoving()
     {
@@ -43,16 +38,13 @@ public class BombMovement : MonoBehaviour
         }
         isMoving = false;
 
-
         rb.linearVelocity = Vector2.zero;
-       
 
     }
 
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+
       vel =Vector2.Reflect(vel, collision.contacts[0].normal);
         rb.linearVelocity = vel;
     }

@@ -9,7 +9,6 @@ public class Saw : MonoBehaviour
     List<Transform> wayPoints;
     public float time;
 
-
     public GameObject afterImage;
 
     public int afterImageCount;
@@ -26,7 +25,6 @@ public class Saw : MonoBehaviour
     {
         transform.Rotate(Vector3.forward* rotateSpeed*Time.deltaTime);
     }
-
 
     IEnumerator GoToWayPoint(int index)
     {

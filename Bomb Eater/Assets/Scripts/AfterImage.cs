@@ -9,7 +9,6 @@ public class AfterImage : MonoBehaviour
     public float afterImageDelay;
     public float afterImageTime;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -17,18 +16,13 @@ public class AfterImage : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     IEnumerator AfterImageSequence()
     {
         yield return new WaitForSeconds(afterImageDelay);
         GetComponent<SpriteRenderer>().DOFade(0f, afterImageTime);
         yield return new WaitForSeconds(afterImageTime);
-       
+
         Destroy(this.gameObject);
     }
 }

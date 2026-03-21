@@ -15,17 +15,11 @@ public class LeaderboardPanel : MonoBehaviour
 
     public TMP_InputField usernameInputField;
 
-
     public UnityEvent<string, int> OnSubmitLeaderBoardEntry;
-
 
     public TextMeshProUGUI scoreText;
 
-
     public GameObject errorPanel;
-
-
-
 
      private void OnEnable() {
        scoreText.text = "Score: " + GameManager.instance.score.ToString();
@@ -33,14 +27,12 @@ public class LeaderboardPanel : MonoBehaviour
 
     public void UpdateLeaderBoardVisuals(Entry[] leaderboardData){
 
-
         if(leaderboardData == null){
-
 
             errorPanel.SetActive(true);
             return;
         }
-        
+
         foreach (Transform child in playerCardContainer)
         {
             Destroy(child.gameObject);
@@ -57,23 +49,13 @@ public class LeaderboardPanel : MonoBehaviour
 
     }
 
-
     public void SubmitLeaderBoardEntry(){
         string username = usernameInputField.text;
         int score = GameManager.instance.score;
         OnSubmitLeaderBoardEntry.Invoke(username, score);
 
-
-    }
-
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -6,14 +6,11 @@ using DG.Tweening;
 public class Bomb : MonoBehaviour
 {
 
-
     public float explodeTime;
     public float timeLeft;
     public float explosionRadius;
     public GameObject explodeParticle;
     public GameObject defuseParticle;
-
-
 
     GameObject graphics;
 
@@ -21,14 +18,10 @@ public class Bomb : MonoBehaviour
 
     public bool setToExplode;
 
-
-
     float blinkTime= 1f;
-
 
     bool isCountingDown;
     bool blinking;
-
 
     private void Start()
     {
@@ -45,18 +38,16 @@ public class Bomb : MonoBehaviour
             timeLeft -= Time.deltaTime;
         }
 
-
         shadow.localScale = Vector3.one *     ((7 - graphics.transform.localPosition.y)/7);
-        
 
         if (timeLeft <= 0)
         {
             if (!setToExplode)
             {
-                
+
                 Explode();
             }
-       
+
         }
 
         //Start blinking when one second left to explosion
@@ -65,13 +56,12 @@ public class Bomb : MonoBehaviour
 
             if (!blinking)
             {
-                
+
                 Blink();
             }
         }
     }
 
-    
     IEnumerator StartAnim()
     {
         graphics.transform.localPosition = Vector2.up * 7f;
@@ -88,7 +78,7 @@ public class Bomb : MonoBehaviour
             {
                 movement.StartMoving();
             }
-          
+
         }
     }
 
@@ -101,7 +91,6 @@ public class Bomb : MonoBehaviour
         graphics.GetComponent<SpriteRenderer>().DOColor(Color.white, blinkTime).SetEase(Ease.OutQuad);
     }
 
-
     public virtual void Explode()
     {
         setToExplode = true;
@@ -111,7 +100,7 @@ public class Bomb : MonoBehaviour
         GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         GameObject p = Instantiate(explodeParticle, transform.position, Quaternion.identity);
         Destroy(p, 1f);
-       
+
     }
 
     public virtual void Defuse()
@@ -120,6 +109,6 @@ public class Bomb : MonoBehaviour
         GameObject p = Instantiate(defuseParticle, transform.position, Quaternion.identity);
         Destroy(p, 1f);
         Destroy(gameObject);
-        
+
     }
 }

@@ -6,6 +6,7 @@ public class CrossDamager : MonoBehaviour
 {
 
     LineRenderer lr;
+    Collider2D col;
 
     public AnimationCurve ac;
 
@@ -16,10 +17,13 @@ public class CrossDamager : MonoBehaviour
     private void Awake()
     {
         lr = GetComponent<LineRenderer>();
+        col = GetComponent<Collider2D>();
         lr.enabled = false;
-        GetComponent<Collider2D>().enabled = false;
+        if (col != null)
+        {
+            col.enabled = false;
+        }
     }
-
 
     IEnumerator Activate()
     {
@@ -27,7 +31,6 @@ public class CrossDamager : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         lr.enabled = true;
         float baseWidth = lr.startWidth;
-
 
         float timer = 0;
         while (timer < activeTime)
@@ -66,20 +69,23 @@ public class CrossDamager : MonoBehaviour
                     lr.SetPosition(1, new Vector2(transform.position.x - (t / .1f) * 4f, transform.position.y));
                 }
             }
-            
-
 
             if (t > .9f)
             {
-                GetComponent<Collider2D>().enabled = false;
+                if (col != null)
+                {
+                    col.enabled = false;
+                }
             }
             else if (t < .12f)
             {
-                GetComponent<Collider2D>().enabled = true;
+                if (col != null)
+                {
+                    col.enabled = true;
+                }
             }
 
             yield return null;
-
 
         }
         Destroy(this.gameObject);
@@ -88,14 +94,10 @@ public class CrossDamager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-       
+
         StartCoroutine(Activate());
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

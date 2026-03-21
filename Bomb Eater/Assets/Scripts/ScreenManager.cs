@@ -12,7 +12,6 @@ public class ScreenManager : MonoBehaviour
 
     public bool isFullscreen = false;
 
-
     void Awake()
     {
         if (instance == null)
@@ -24,18 +23,10 @@ public class ScreenManager : MonoBehaviour
             Destroy(this);
         }
 
-
         DontDestroyOnLoad(this.gameObject);
-
-       
 
     }
     // Start is called before the first frame update
-    void Start()
-    {
-
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -55,7 +46,6 @@ public class ScreenManager : MonoBehaviour
         }
     }
 
-    
     public void SetFullscreen()
     {
         Resolution currentRes = Screen.currentResolution;
@@ -63,7 +53,6 @@ public class ScreenManager : MonoBehaviour
 
         Screen.SetResolution(currentRes.width, currentRes.height, fullScreenMode);
     }
-
 
     public void ReturnFromFullscreen()
     {
@@ -77,9 +66,7 @@ public class ScreenManager : MonoBehaviour
         {
             Screen.SetResolution(800, 600, FullScreenMode.Windowed);
         }
-      
-        
-    }
 
+    }
 
 }

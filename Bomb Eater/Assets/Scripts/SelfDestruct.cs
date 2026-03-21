@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-
 public enum AnimationType
 {
     None,
@@ -38,7 +37,6 @@ public class SelfDestruct : MonoBehaviour
         }
     }
 
-
     IEnumerator SelfDestructSpawnObject()
     {
         yield return new WaitForSeconds(selfDestructTime);
@@ -54,8 +52,5 @@ public class SelfDestruct : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
 
-    }
 }

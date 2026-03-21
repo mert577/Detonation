@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class ProgressBar : MonoBehaviour
 {
 
-
     [SerializeField] Image image;
     private void Update()
     {

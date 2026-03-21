@@ -6,7 +6,6 @@ using DG.Tweening;
 public class DeathPanel : MonoBehaviour
 {
 
-
     public TextMeshProUGUI titleText;
 
     public TextMeshProUGUI timeSurvivedText;
@@ -15,15 +14,11 @@ public class DeathPanel : MonoBehaviour
 
     public RectTransform[] allElements;
 
-
     public float timeBetweenElements = 0.1f;
 
     public float punchScaleAmount =1.1f;
 
     public float animationTime = 0.5f;
-
-
-
 
     public void DeathPanelEnterAnimation(){
         timeSurvivedText.text = GameManager.instance.timeSurvived.ToString() +"s";
@@ -35,15 +30,12 @@ public class DeathPanel : MonoBehaviour
 
             foreach (var item in allElements)
             {
-               item.DOPunchScale(Vector3.one * punchScaleAmount, animationTime, 1, 0); 
+               item.DOPunchScale(Vector3.one * punchScaleAmount, animationTime, 1, 0);
                 yield return new WaitForSeconds(timeBetweenElements);
             }
-        
+
         }
     }
-
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -52,8 +44,5 @@ public class DeathPanel : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public  class UtilityClass
 {
 
-
     public static float GetRotationFromDirection(Vector2 direction)
     {
         // Get the angle of the direction vector, relative to the x-axis
@@ -16,7 +15,7 @@ public  class UtilityClass
 
         // Return the rotation
         return rotation;
-    }  
+    }
 
     public static Vector2 GetDirectionFromRotation(float rotation)
     {
@@ -29,7 +28,6 @@ public  class UtilityClass
         // Return the direction vector
         return direction;
     }
-
 
         public static Vector2 GetRandomPointInBounds(Bounds bounds)
     {

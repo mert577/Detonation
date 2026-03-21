@@ -12,7 +12,6 @@ public class TextWaveAnimation : MonoBehaviour
     private Vector3[] originalVertices;
     private TMP_TextInfo textInfo;
 
-
     public AnimationCurve waveCurve;
 
     public float waitTime;
@@ -43,9 +42,6 @@ public class TextWaveAnimation : MonoBehaviour
         }
     }
 
-
-
-
     void Update()
     {
         timer += Time.deltaTime;
@@ -66,7 +62,6 @@ public class TextWaveAnimation : MonoBehaviour
             }
 
             titleText.ForceMeshUpdate();
-
 
             for (int i = 0; i < textInfo.characterCount; i++)
             {

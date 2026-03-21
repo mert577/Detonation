@@ -5,19 +5,15 @@ using UnityEngine;
 public class BombSpawner : MonoBehaviour
 {
 
-
     public float waveWaitTime;
 
     public int minWaveSize;
     public int maxWaveSize;
 
-
     public List<Bomb> easyBombPool;
     public List<Bomb> mediumBombPool;
     public List<Bomb> hardBombPool;
     public List<Bomb> extremeBombPool;
-
-
 
     public Bounds bounds;
 
@@ -28,7 +24,6 @@ public class BombSpawner : MonoBehaviour
     public float waitTime;
 
     public float timer;
-
 
     public bool spawning;
     private void Awake()
@@ -47,18 +42,10 @@ public class BombSpawner : MonoBehaviour
 
      //   bounds.center = transform.position;
       //  bounds.extents = transform.localScale- Vector3.one*.4f;
-       
-    
-    
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-      
-    }
-
-
 
     public void StartSpawning()
     {
@@ -97,7 +84,7 @@ public class BombSpawner : MonoBehaviour
         int waveNumber = ProgressManager.instance.waveNumber;
 
         int waveNumberMod = waveNumber % 7;
-        
+
         float waveNumberSpawnTimeModifier = 1;
         if(waveNumberMod >= 5){
             waveNumberSpawnTimeModifier =.75f;
@@ -113,10 +100,8 @@ public class BombSpawner : MonoBehaviour
             Vector2 randomPos = UtilityClass.GetRandomPointInBounds(bounds);
             Instantiate(randomBomb, randomPos, Quaternion.identity);
 
-
             yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
         }
-
 
         while (timer > 0)
         {

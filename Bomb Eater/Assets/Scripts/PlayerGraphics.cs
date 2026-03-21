@@ -7,19 +7,15 @@ using UnityEngine;
 public class PlayerGraphics : MonoBehaviour
 {
 
-
     public GameObject graphicsObject;
 
-
     [SerializeField] GameObject healthAnimation;
-
 
     [SerializeField] float moveAmount;
     [SerializeField] float animationTime;
 
     [SerializeField] AudioClip healSound;
     [SerializeField] AudioSource audioSource;
-
 
     public void PlayHurtAnimation()
     {
@@ -37,16 +33,8 @@ public class PlayerGraphics : MonoBehaviour
 
     }
 
-
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
-    void Update()
-    {
 
-    }
 }

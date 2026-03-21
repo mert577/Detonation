@@ -5,7 +5,6 @@ using UnityEngine;
 public class FourWayBomb : Bomb
 {
 
-    
     public GameObject bullet;
 
     public int bulletCount;
@@ -23,9 +22,6 @@ public class FourWayBomb : Bomb
             GameObject b =   Instantiate(bullet, transform.position, Quaternion.identity);
             b.GetComponent<Projectile>().StartProjectile(angle);
         }
-
-
-
 
         Destroy(gameObject);
     }

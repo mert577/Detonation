@@ -7,10 +7,8 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
 
-
-
     public int score;
-    
+
     public int bombsDefused;
 
     public int timeSurvived;
@@ -22,12 +20,8 @@ public class GameManager : MonoBehaviour
 
     public float timePlayed;
 
-
-
     float startTime=0;
     float endTime=0;
-
-    
 
     private void Awake()
     {
@@ -77,24 +71,20 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Playing;
         startTime = Time.time;
         Camera.main.transform.DOMoveY(0, 1f).SetEase(Ease.InOutQuad).OnComplete(() => {  BombSpawner.instance.StartSpawning(); UIManager.instance.ActivateHealthBar(); });
-      
-    }
 
+    }
 
     public void GameOver(){
         endTime = Time.time;
         timeSurvived = (int)(endTime - startTime);
 
-        
         gameState = GameState.GameOver;
 
         OnGameOver.Invoke();
 
     }
 
-    
 }
-
 
 public enum GameState
 {

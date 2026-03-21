@@ -13,7 +13,6 @@ public class OnHoverPopUp : MonoBehaviour
     [SerializeField]
     float animationTime = 0.25f;
 
-
     void Start()
     {
         originalScale = transform.localScale.x;

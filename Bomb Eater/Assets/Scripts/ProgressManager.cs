@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class ProgressManager : MonoBehaviour
 {
-   
+
     public static ProgressManager instance;
 
     public int waveNumber;
 
     public int bombsDefused;
 
-    
-
     public Difficulty currentDifficulty;
-
 
     public float movementChance;
 
     public float waveSpawnTimeModifier;
+    int lastEvaluatedWave = -1;
+    PlayerHealth playerHealth;
 
     private void Awake()
     {
@@ -30,29 +29,45 @@ public class ProgressManager : MonoBehaviour
         instance = this;
     }
 
-
-
     // Start is called before the first frame update
     void Start()
     {
-        currentDifficulty = CalculateDifficulty();
+        RefreshDifficultyIfNeeded(force: true);
     }
 
     // Update is called once per frame
     void Update()
     {
-         currentDifficulty= CalculateDifficulty();
+           RefreshDifficultyIfNeeded();
     }
 
-
-    
     public void OnBombDefuse()
     {
         bombsDefused += 1;
         if (bombsDefused % 35 == 0)
         {
-            PlayerHealth playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
-            playerHealth.Heal();
+            if (playerHealth == null)
+            {
+                GameObject playerObject = GameObject.Find("Player");
+                if (playerObject != null)
+                {
+                    playerHealth = playerObject.GetComponent<PlayerHealth>();
+                }
+            }
+
+            if (playerHealth != null)
+            {
+                playerHealth.Heal();
+            }
+        }
+    }
+
+    void RefreshDifficultyIfNeeded(bool force = false)
+    {
+        if (force || waveNumber != lastEvaluatedWave)
+        {
+            currentDifficulty = CalculateDifficulty();
+            lastEvaluatedWave = waveNumber;
         }
     }
 
@@ -67,7 +82,7 @@ public class ProgressManager : MonoBehaviour
             Projectile.speedModifier = 1f;
             waveSpawnTimeModifier = 1;
         }
-        else if(waveNumber>=15& waveNumber < 25)
+        else if(waveNumber>=15 && waveNumber < 25)
         {
             dif = Difficulty.Medium;
             movementChance = .35f;
@@ -96,11 +111,8 @@ public class ProgressManager : MonoBehaviour
 
         return dif;
 
-
-
     }
 }
-
 
 public enum Difficulty
 {

@@ -7,18 +7,11 @@ using UnityEngine.Events;
 public class LeaderboardDataLoader : MonoBehaviour
 {
 
-
-
-  
     // Start is called before the first frame update
-
 
     public UnityEvent<Entry[]> OnLeaderBoardUpdated;
 
     Entry[] leaderboardData;
-
-
-    
 
     public void GetLeaderBoardData(){
         Leaderboards.detotest.GetEntries((entries) => {
@@ -28,7 +21,7 @@ public class LeaderboardDataLoader : MonoBehaviour
                 foreach(Entry entry in leaderboardData){
                     Debug.Log(entry.Username + " " + entry.Score);
                 }
-            
+
                 OnLeaderBoardUpdated?.Invoke(leaderboardData);
             }
             catch (System.Exception e) {
@@ -41,13 +34,11 @@ public class LeaderboardDataLoader : MonoBehaviour
         });
     }
 
-
     public void PostScore(string username,int score){
        Leaderboards.detotest.UploadNewEntry(username, score, (entry) => {
            GetLeaderBoardData();
        });
     }
-
 
     private void Awake() {
         //wait for leaderboard to initlizae then get the data
@@ -59,14 +50,6 @@ public class LeaderboardDataLoader : MonoBehaviour
         GetLeaderBoardData();
     }
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

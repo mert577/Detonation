@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
 
     public float accelerationForce;
 
-
     public bool dashing;
 
     public float dashForce;
@@ -21,21 +20,18 @@ public class PlayerMovement : MonoBehaviour
     public float dashDrag;
     public float dashTime;
 
-
     //public ParticleSystem DashParticles;
 
     public float rotateSpeed;
 
     public GameObject playerGraphics;
-
+    SpriteRenderer playerSpriteRenderer;
 
     public float dashCooldown;
-
 
     public float dashCoolDownTimer;
     bool control= true;
     public Color dashColor;
-
 
     public int maxDashes;
 
@@ -54,18 +50,24 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     bool lastInputWasGamepad = false;
 
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         originalSize = transform.localScale;
         defuser = transform.GetChild(1).GetComponent<BombDefuser>();
+        if (playerGraphics != null)
+        {
+            playerSpriteRenderer = playerGraphics.GetComponent<SpriteRenderer>();
+        }
     }
     // Start is called before the first frame update
     void Start()
     {
         dashesLeft = maxDashes;
-        originalColor = playerGraphics.GetComponent<SpriteRenderer>().color;
+        if (playerSpriteRenderer != null)
+        {
+            originalColor = playerSpriteRenderer.color;
+        }
     }
 
     // Update is called once per frame
@@ -79,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
             lastInputWasGamepad = true;
         }
 
-
         if(GameManager.instance.gameState == GameState.Playing)
         {
             control = true;
@@ -92,12 +93,11 @@ public class PlayerMovement : MonoBehaviour
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         input = Vector2.ClampMagnitude(input, 1f);
 
-
         playerGraphics.transform.Rotate(Vector3.forward * Time.deltaTime * rotateSpeed);
 
         if (!dashing)
         {
-           
+
             if (Input.GetButtonDown("Jump") && dashCoolDownTimer  <= 0)
             {
                 StartCoroutine(Dash());
@@ -106,29 +106,28 @@ public class PlayerMovement : MonoBehaviour
 
         HandleDashCooldown();
 
-
-
         if (!(dashCoolDownTimer <= 0) && !dashing)
         {
-            
-            playerGraphics.GetComponent<SpriteRenderer>().color = dashColor;
+
+            if (playerSpriteRenderer != null)
+            {
+                playerSpriteRenderer.color = dashColor;
+            }
         }
         else
         {
-            playerGraphics.GetComponent<SpriteRenderer>().color = originalColor;
+            if (playerSpriteRenderer != null)
+            {
+                playerSpriteRenderer.color = originalColor;
+            }
         }
 
-        
-        
     }
-
 
     private void FixedUpdate()
     {
         if (!dashing)
         {
-
-
 
             if (!control)
             {
@@ -141,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
             }
             rb.AddForce(accelerationForce * input*accelerationForceModifier);
             rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxSpeed);
-           
+
         }
 
     }
@@ -177,7 +176,6 @@ public class PlayerMovement : MonoBehaviour
             dashCoolDownTimer = dashCooldown;
         }
 
-       
         playerGraphics.transform.DORewind();
         playerGraphics.transform.DOPunchScale(originalSize * 1.35f,dashTime);
 
@@ -186,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 direction;
         if (defuser.closestBomb != null)
         {
-            
+
             direction = defuser.closestBomb.position - transform.position;
             direction.Normalize();
         }
@@ -194,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
         {
             direction = input;
         }
-        
+
         rb.linearVelocity =  dashForce * direction;
 //        Debug.Log(rb.velocity);
          var em = trailParticles.emission;
@@ -205,12 +203,6 @@ public class PlayerMovement : MonoBehaviour
         while (timer > 0)
         {
             float t = timer / dashTime;
-           
-
-          
-
-
-            
 
             timer -= Time.deltaTime;
             rb.linearDamping -= (dashDrag - drag) / (dashTime / Time.deltaTime);
@@ -225,8 +217,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
-
     IEnumerator SpawnAfterImages(int count)
     {
         for(int i = 0; i < count; i++)
@@ -234,13 +224,12 @@ public class PlayerMovement : MonoBehaviour
             Instantiate(afterImage, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(dashTime / count);
         }
-       
+
     }
     public void LoseControl(float time)
     {
         StartCoroutine(_LoseControl(time));
     }
-
 
     IEnumerator _LoseControl(float time)
     {

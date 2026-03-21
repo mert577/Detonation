@@ -28,11 +28,6 @@ public class SceneLoadManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public void OnLoadScene()
     {
@@ -45,13 +40,11 @@ public class SceneLoadManager : MonoBehaviour
         ExitScene.SetActive(true);
         ExitScene.GetComponent<RectTransform>().DOLocalMoveX(0, .7f).SetEase(Ease.OutQuart).OnComplete(S);
 
-
         void S()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
           // ExitScene.SetActive(false);
         }
-        
 
     }
 

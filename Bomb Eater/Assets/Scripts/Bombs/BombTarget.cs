@@ -27,11 +27,8 @@ public class BombTarget : Bomb
             float angle = directionAngle +angleOffset + (i * (bulletSpread* (1+Random.Range(-spreadRandomness, spreadRandomness))));
             GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
             b.GetComponent<Projectile>().StartProjectile(angle, 1f+ ( Random.Range (-speedRandomness,speedRandomness)));
-         
+
         }
-
-
-
 
         Destroy(gameObject);
     }

@@ -6,12 +6,10 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
 
-
     public List<Image> heartIcons;
     public List<Vector2> heartIconPositions;
 
     [SerializeField] PlayerHealth pHealth;
-
 
     bool shaking = false;
 
@@ -25,7 +23,7 @@ public class HealthBar : MonoBehaviour
         for (int i = 0; i < heartIcons.Count; i++)
         {
             heartIconPositions.Add(heartIcons[i].rectTransform.anchoredPosition);
-        }   
+        }
     }
 
     // Update is called once per frame
@@ -45,8 +43,6 @@ public class HealthBar : MonoBehaviour
         for (int i=0;i< heartIcons.Count; i++)
         {
 
-          
-
             if (i<countToSetInActive)
             {
                 heartIcons[i].color = inActiveColor;
@@ -56,21 +52,13 @@ public class HealthBar : MonoBehaviour
                 heartIcons[i].color = activeColor;
             }
 
-            
-            
         }
 
-
-
     }
-
-
-
 
     public void StartShake()
     {
         shaking = true;
-
 
     }
 

@@ -9,21 +9,17 @@ public class BombDefuser : MonoBehaviour
 
     public bool ableToDefuse;
 
-
     public Transform closestBomb;
     public LayerMask layer;
-
 
     public GameObject target;
 
     public int defusedBombs = 0;
 
-
     public float defuseRange = 2.5f;
 
     [SerializeField]
     SpriteRenderer rangeSprite;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -53,10 +49,8 @@ public class BombDefuser : MonoBehaviour
             away.Normalize();
             target.transform.right = Quaternion.Euler(0, 0, 45)* away;
         }
-       
+
     }
-
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -66,7 +60,7 @@ public class BombDefuser : MonoBehaviour
             if (ableToDefuse&& !bomb.setToExplode)
             {
                 ProgressManager.instance.OnBombDefuse();
-              
+
                 GetComponentInParent<PlayerMovement>().dashCoolDownTimer = 0.1f;
                 DOTween.To(() => Time.timeScale, SetTimeScale, .05f, 0.06f).OnComplete(() => Time.timeScale = 1f).SetUpdate(true);
                 bomb.Defuse();
@@ -79,10 +73,9 @@ public class BombDefuser : MonoBehaviour
                 GetComponentInParent<PlayerMovement>().LoseControl(0.1f);
                 GetComponentInParent<Rigidbody2D>().AddForce(away*-80, ForceMode2D.Impulse);
             }
-            
+
         }
     }
-
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -96,7 +89,6 @@ public class BombDefuser : MonoBehaviour
                 GetComponentInParent<PlayerMovement>().dashCoolDownTimer = 0.1f;
                 bomb.Defuse();
 
-               
             }
             else
             {
@@ -109,7 +101,6 @@ public class BombDefuser : MonoBehaviour
 
         }
     }
-
 
     void SetTimeScale(float time)
     {
