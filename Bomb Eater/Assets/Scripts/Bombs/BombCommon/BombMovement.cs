@@ -29,8 +29,8 @@ public class BombMovement : MonoBehaviour
 
         Vector2 dir = Random.insideUnitCircle;
         dir.Normalize();
-        rb.velocity =dir * speed* Random.Range(.7f,1f);
-        vel = rb.velocity;
+        rb.linearVelocity =dir * speed* Random.Range(.7f,1f);
+        vel = rb.linearVelocity;
 
     }
 
@@ -44,7 +44,7 @@ public class BombMovement : MonoBehaviour
         isMoving = false;
 
 
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
        
 
     }
@@ -54,6 +54,6 @@ public class BombMovement : MonoBehaviour
     {
         
       vel =Vector2.Reflect(vel, collision.contacts[0].normal);
-        rb.velocity = vel;
+        rb.linearVelocity = vel;
     }
 }

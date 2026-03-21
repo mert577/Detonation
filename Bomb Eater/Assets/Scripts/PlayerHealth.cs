@@ -82,8 +82,7 @@ public class PlayerHealth : MonoBehaviour
             SetTimeScale(0.125f);
            
           
-            transform.GetChild(0).DORewind();
-            transform.GetChild(0).DOPunchScale(Vector3.one * .8f, 0.3f);
+            GetComponent<PlayerGraphics>().PlayHurtAnimation();
             //time scale
             
             GetComponent<PlayerMovement>().LoseControl(0.2f);

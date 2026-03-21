@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Bomb Eater.sln"
+    "dotnet.defaultSolution": "Bomb Eater.slnx"
 }

@@ -23,8 +23,8 @@ public class BombTarget : Bomb
             Vector2 dir =target.position - transform.position;
             dir.Normalize();
 
-            angleOffset = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            float angle = angleOffset + (i * (bulletSpread* (1+Random.Range(-spreadRandomness, spreadRandomness))));
+            float directionAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            float angle = directionAngle +angleOffset + (i * (bulletSpread* (1+Random.Range(-spreadRandomness, spreadRandomness))));
             GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
             b.GetComponent<Projectile>().StartProjectile(angle, 1f+ ( Random.Range (-speedRandomness,speedRandomness)));
          

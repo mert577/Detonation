@@ -1,0 +1,26 @@
+{
+  "name": "com.megumin.binding",
+  "displayName": "Megumin Binding",
+  "version": "1.1.1",
+  "unity": "2021.3",
+  "description": "The parameter binding module code of the Megumin-Plugins.",
+  "category": "Megumin",
+  "documentationUrl": "",
+  "changelogUrl": "",
+  "licensesUrl": "",
+  "hideInEditor": false,
+  "keywords": [
+    "PackageWizard",
+    "Megumin",
+    "Binding"
+  ],
+  "author": {
+    "name": "KumoKyaku",
+    "email": "479813005@qq.com",
+    "url": "https://github.com/KumoKyaku"
+  },
+  "dependencies": {
+    "com.megumin.common": "1.0.9",
+    "com.megumin.serialization": "1.1.1"
+  }
+}

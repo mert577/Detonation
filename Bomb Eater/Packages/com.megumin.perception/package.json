@@ -1,0 +1,25 @@
+{
+  "name": "com.megumin.perception",
+  "displayName": "Megumin Perception",
+  "version": "1.1.3",
+  "unity": "2021.3",
+  "description": "AI perception module code.",
+  "category": "Megumin",
+  "documentationUrl": "https://github.com/0x3f3f3f3f/Megumin.Perception",
+  "changelogUrl": "",
+  "licensesUrl": "https://github.com/0x3f3f3f3f/Megumin.Perception",
+  "hideInEditor": false,
+  "keywords": [
+    "PackageWizard",
+    "Megumin",
+    "Perception"
+  ],
+  "author": {
+    "name": "KumoKyaku",
+    "email": "479813005@qq.com",
+    "url": "https://github.com/KumoKyaku"
+  },
+  "dependencies": {
+    "com.megumin.common": "1.0.9"
+  }
+}

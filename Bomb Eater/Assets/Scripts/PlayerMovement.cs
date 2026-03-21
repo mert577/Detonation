@@ -140,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
                // accelerationForceModifier = 2f;
             }
             rb.AddForce(accelerationForce * input*accelerationForceModifier);
-            rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
+            rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxSpeed);
            
         }
 
@@ -178,11 +178,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
        
-
+        playerGraphics.transform.DORewind();
         playerGraphics.transform.DOPunchScale(originalSize * 1.35f,dashTime);
 
         defuser.ableToDefuse = true;
-        float drag = rb.drag;
+        float drag = rb.linearDamping;
         Vector2 direction;
         if (defuser.closestBomb != null)
         {
@@ -195,11 +195,11 @@ public class PlayerMovement : MonoBehaviour
             direction = input;
         }
         
-        rb.velocity =  dashForce * direction;
+        rb.linearVelocity =  dashForce * direction;
 //        Debug.Log(rb.velocity);
          var em = trailParticles.emission;
          em.enabled =false;
-        rb.drag = dashDrag;
+        rb.linearDamping = dashDrag;
         float timer =dashTime;
         StartCoroutine(SpawnAfterImages(3));
         while (timer > 0)
@@ -213,12 +213,12 @@ public class PlayerMovement : MonoBehaviour
             
 
             timer -= Time.deltaTime;
-            rb.drag -= (dashDrag - drag) / (dashTime / Time.deltaTime);
+            rb.linearDamping -= (dashDrag - drag) / (dashTime / Time.deltaTime);
             yield return null;
         }
         em.enabled = true;
         //rb.velocity = Vector2.zero;
-        rb.drag = drag;
+        rb.linearDamping = drag;
         dashing = false;
         transform.localScale = (originalSize);
         defuser.ableToDefuse = false;

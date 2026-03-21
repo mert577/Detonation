@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24eb528ebc97814a88d65c7618bfc70, type: 3}
+  m_Name: ChangeTypeNameTest
+  m_EditorClassIdentifier: 
+  SerializationVersion: 1.1.1
+  <GUID>k__BackingField: 097c7a6e-f201-4e62-9647-eb3532c6192c
+  <StartNodeGUID>k__BackingField: 
+  UseSerializeReferenceGeneric: 0
+  UnityObjectRef: []
+  variables: []
+  nodes:
+  - Name: 896edbe0-845e-4985-8db7-3626dfcd4b03
+    Type: Megumin.AI.BehaviorTree.Log
+    Member:
+    - Name: Meta
+      Type: $ref
+      Value: 896edbe0-845e-4985-8db7-3626dfcd4b03.Meta
+    - Name: Decorators
+      Type: $ref
+      Value: 896edbe0-845e-4985-8db7-3626dfcd4b03.Decorators
+    - Name: Info
+      Type: $ref
+      Value: 896edbe0-845e-4985-8db7-3626dfcd4b03.Info
+    - Name: GUID
+      Type: System.String
+      Value: 896edbe0-845e-4985-8db7-3626dfcd4b03
+  decorators:
+  - Name: 52600aa4-538c-46bb-87b0-121c76bafcbc
+    Type: Megumin.AI.BehaviorTree.CheckBool_Decorator
+    Member:
+    - Name: GUID
+      Type: System.String
+      Value: 52600aa4-538c-46bb-87b0-121c76bafcbc
+  refObjs:
+  - Name: 896edbe0-845e-4985-8db7-3626dfcd4b03.Decorators
+    Type: System.Collections.Generic.List`1[[Megumin.AI.BehaviorTree.IDecorator]]
+    Member:
+    - Name: 0
+      Type: $ref
+      Value: 52600aa4-538c-46bb-87b0-121c76bafcbc
+  - Name: 896edbe0-845e-4985-8db7-3626dfcd4b03.Info
+    Type: Megumin.AI.LogInfo
+    Member:
+    - Name: Text
+      Type: $ref
+      Value: 896edbe0-845e-4985-8db7-3626dfcd4b03.Info.Text
+  - Name: 896edbe0-845e-4985-8db7-3626dfcd4b03.Info.Text
+    Type: Megumin.Binding.RefVar_String
+    Member:
+    - Name: value
+      Type: System.String
+      Value: 'Hello world!    Hello: $(name)! [$(position)]'
+  - Name: 896edbe0-845e-4985-8db7-3626dfcd4b03.Meta
+    Type: Megumin.AI.BehaviorTree.NodeMeta
+    Member:
+    - Name: x
+      Type: System.Single
+      Value: 253
+    - Name: y
+      Type: System.Single
+      Value: 217

@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
     {
       
         transform.rotation = Quaternion.Euler(0, 0, angle);
-        rb.velocity = transform.right * speed * speedModifier*speedMultip;
+        rb.linearVelocity = transform.right * speed * speedModifier*speedMultip;
     }
 
     
@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.Euler(0, 0, UtilityClass.GetRotationFromDirection(rb.velocity.normalized));
+        transform.rotation = Quaternion.Euler(0, 0, UtilityClass.GetRotationFromDirection(rb.linearVelocity.normalized));
     }
 
 

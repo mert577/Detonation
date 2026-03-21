@@ -1,0 +1,25 @@
+{
+  "name": "com.megumin.serialization",
+  "displayName": "Megumin Serialization",
+  "version": "1.1.1",
+  "unity": "2021.3",
+  "description": "The reflection module code of the Megumin-Plugins.",
+  "category": "Megumin",
+  "documentationUrl": "",
+  "changelogUrl": "",
+  "licensesUrl": "",
+  "hideInEditor": false,
+  "keywords": [
+    "PackageWizard",
+    "Megumin",
+    "Serialization"
+  ],
+  "author": {
+    "name": "KumoKyaku",
+    "email": "479813005@qq.com",
+    "url": "https://github.com/KumoKyaku"
+  },
+  "dependencies": {
+    "com.megumin.common": "1.0.9"
+  }
+}

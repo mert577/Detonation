@@ -1,0 +1,294 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222ab640ecb54be459294968cc1449eb, type: 3}
+  m_Name: NodeGeneraotr
+  m_EditorClassIdentifier: 
+  OutputFolder: {fileID: 102900000, guid: 35de0703654dd0144955ac937e1eb5ad, type: 3}
+  MultiThreading: 1
+  Assemblys:
+  - Enabled: 0
+    Value: Assembly-CSharp
+  Types:
+  - Enabled: 1
+    Value: UnityEngine.Animation
+  - Enabled: 1
+    Value: UnityEngine.Animator
+  - Enabled: 1
+    Value: UnityEngine.AudioSource
+  - Enabled: 1
+    Value: UnityEngine.BoxCollider
+  - Enabled: 1
+    Value: UnityEngine.BoxCollider2D
+  - Enabled: 1
+    Value: UnityEngine.Camera
+  - Enabled: 1
+    Value: UnityEngine.CapsuleCollider
+  - Enabled: 1
+    Value: UnityEngine.CharacterController
+  - Enabled: 1
+    Value: UnityEngine.CircleCollider2D
+  - Enabled: 1
+    Value: UnityEngine.Collider
+  - Enabled: 1
+    Value: UnityEngine.GameObject
+  - Enabled: 1
+    Value: UnityEngine.Input
+  - Enabled: 1
+    Value: UnityEngine.Light
+  - Enabled: 1
+    Value: UnityEngine.Mathf
+  - Enabled: 1
+    Value: UnityEngine.AI.NavMeshAgent
+  - Enabled: 1
+    Value: UnityEngine.ParticleSystem
+  - Enabled: 1
+    Value: UnityEngine.Physics
+  - Enabled: 1
+    Value: UnityEngine.Physics2D
+  - Enabled: 1
+    Value: UnityEngine.PlayerPrefs
+  - Enabled: 1
+    Value: UnityEngine.Quaternion
+  - Enabled: 1
+    Value: UnityEngine.Renderer
+  - Enabled: 1
+    Value: UnityEngine.Rigidbody
+  - Enabled: 1
+    Value: UnityEngine.Rigidbody2D
+  - Enabled: 1
+    Value: UnityEngine.SphereCollider
+  - Enabled: 1
+    Value: UnityEngine.Time
+  - Enabled: 1
+    Value: UnityEngine.Playables.PlayableDirector
+  - Enabled: 1
+    Value: UnityEngine.Transform
+  - Enabled: 1
+    Value: UnityEngine.Vector2
+  - Enabled: 1
+    Value: UnityEngine.Vector2Int
+  - Enabled: 1
+    Value: UnityEngine.Vector3
+  - Enabled: 1
+    Value: UnityEngine.Vector3Int
+  - Enabled: 1
+    Value: UnityEngine.Vector4
+  - Enabled: 1
+    Value: UnityEngine.SceneManagement.SceneManager
+  ClassNameOptions:
+  - Regex: .*ReadOnlySpan
+    IgnoreGenerated: 1
+    CompileMacro: 
+    ObsoleteGenerated: 1
+    ObsoleteMessage: Obsolete API in a future version of Unity
+    ObsoleteError: 1
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: .*_Span_
+    IgnoreGenerated: 1
+    CompileMacro: 
+    ObsoleteGenerated: 1
+    ObsoleteMessage: Obsolete API in a future version of Unity
+    ObsoleteError: 1
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: .*ParticleSystem_(G|S)etParticles_NativeArray_1_Particle
+    IgnoreGenerated: 1
+    CompileMacro: 
+    ObsoleteGenerated: 0
+    ObsoleteMessage: 
+    ObsoleteError: 0
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: Input_IsJoystickPreconfigured_String_.*
+    IgnoreGenerated: 1
+    CompileMacro: 
+    ObsoleteGenerated: 0
+    ObsoleteMessage: 
+    ObsoleteError: 0
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: .*Vector\d(Int)?_Item
+    IgnoreGenerated: 1
+    CompileMacro: 
+    ObsoleteGenerated: 0
+    ObsoleteMessage: 
+    ObsoleteError: 0
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: Light_SetLightDirty
+    IgnoreGenerated: 1
+    CompileMacro: 
+    ObsoleteGenerated: 0
+    ObsoleteMessage: 
+    ObsoleteError: 0
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: Light_shadowAngle
+    IgnoreGenerated: 1
+    CompileMacro: 
+    ObsoleteGenerated: 0
+    ObsoleteMessage: 
+    ObsoleteError: 0
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: Light_shadowRadius
+    IgnoreGenerated: 1
+    CompileMacro: 
+    ObsoleteGenerated: 0
+    ObsoleteMessage: 
+    ObsoleteError: 0
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: Physics2D_alwaysShowColliders.*
+    IgnoreGenerated: 0
+    CompileMacro: '!UNITY_2023_1_OR_NEWER'
+    ObsoleteGenerated: 1
+    ObsoleteMessage: Obsolete API in a future version of Unity
+    ObsoleteError: 1
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: Physics2D_contactArrowScale.*
+    IgnoreGenerated: 0
+    CompileMacro: '!UNITY_2023_1_OR_NEWER'
+    ObsoleteGenerated: 1
+    ObsoleteMessage: Obsolete API in a future version of Unity
+    ObsoleteError: 1
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: Physics2D_showColliderAABB.*
+    IgnoreGenerated: 0
+    CompileMacro: '!UNITY_2023_1_OR_NEWER'
+    ObsoleteGenerated: 1
+    ObsoleteMessage: Obsolete API in a future version of Unity
+    ObsoleteError: 1
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: Physics2D_showColliderContacts.*
+    IgnoreGenerated: 0
+    CompileMacro: '!UNITY_2023_1_OR_NEWER'
+    ObsoleteGenerated: 1
+    ObsoleteMessage: Obsolete API in a future version of Unity
+    ObsoleteError: 1
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: Physics2D_showColliderSleep.*
+    IgnoreGenerated: 0
+    CompileMacro: '!UNITY_2023_1_OR_NEWER'
+    ObsoleteGenerated: 1
+    ObsoleteMessage: Obsolete API in a future version of Unity
+    ObsoleteError: 1
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: Physics2D_velocityThreshold.*
+    IgnoreGenerated: 0
+    CompileMacro: '!UNITY_2023_1_OR_NEWER'
+    ObsoleteGenerated: 1
+    ObsoleteMessage: Obsolete API in a future version of Unity
+    ObsoleteError: 1
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: Physics_autoSimulation.*
+    IgnoreGenerated: 0
+    CompileMacro: '!UNITY_2023_1_OR_NEWER'
+    ObsoleteGenerated: 1
+    ObsoleteMessage: Obsolete API in a future version of Unity
+    ObsoleteError: 1
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: Physics_RebuildBroadphaseRegions_Bounds_Int32.*
+    IgnoreGenerated: 0
+    CompileMacro: '!UNITY_2023_1_OR_NEWER'
+    ObsoleteGenerated: 1
+    ObsoleteMessage: Obsolete API in a future version of Unity
+    ObsoleteError: 1
+    OverrideIconPath: 
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  DeclearTypeNameOptions:
+  - Regex: UnityEngine.Input
+    IgnoreGenerated: 0
+    CompileMacro: 
+    ObsoleteGenerated: 0
+    ObsoleteMessage: 
+    ObsoleteError: 0
+    OverrideIconPath: standaloneinputmodule icon
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: UnityEngine.Mathf
+    IgnoreGenerated: 0
+    CompileMacro: 
+    ObsoleteGenerated: 0
+    ObsoleteMessage: 
+    ObsoleteError: 0
+    OverrideIconPath: d_collabcreate icon
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  - Regex: UnityEngine.Time
+    IgnoreGenerated: 0
+    CompileMacro: 
+    ObsoleteGenerated: 0
+    ObsoleteMessage: 
+    ObsoleteError: 0
+    OverrideIconPath: d_unityeditor.animationwindow@2x
+    OverrideIconTexture2D: {fileID: 0}
+    OverrideCategory: 
+    OverrideDisplayName: 
+  ReplaceCategory:
+  - oldValue: UnityEngine/AI
+    newValue: UnityEngine
+  - oldValue: UnityEngine/Playables
+    newValue: UnityEngine
+  - oldValue: UnityEngine/SceneManagement
+    newValue: UnityEngine
+  Field2GetNode: 1
+  Field2SetNode: 1
+  Field2Deco: 1
+  Proterty2GetNode: 1
+  Proterty2SetNode: 1
+  Proterty2Deco: 1
+  Method2Node: 1
+  Method2Deco: 1
+  OutputNamespace: Megumin.AI.BehaviorTree

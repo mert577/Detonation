@@ -23,7 +23,7 @@ public class HomingProjectile : Projectile
 
 
         dir.Normalize();
-        rb.velocity = dir * speed*speedModifier;
+        rb.linearVelocity = dir * speed*speedModifier;
     }
 
     private void Awake()
@@ -45,10 +45,10 @@ public class HomingProjectile : Projectile
         dir.Normalize();
 
         rb.AddForce(accelerationForce * -dir);  //*  Random.Range(.5f,1.5f));
-        rb.velocity = Vector2.ClampMagnitude(rb.velocity, speed* speedModifier);
+        rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, speed* speedModifier);
 
 
-        transform.rotation = Quaternion.Euler(0, 0, UtilityClass.GetRotationFromDirection(rb.velocity.normalized)); 
+        transform.rotation = Quaternion.Euler(0, 0, UtilityClass.GetRotationFromDirection(rb.linearVelocity.normalized)); 
     }
 
 

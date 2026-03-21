@@ -1,0 +1,20 @@
+{
+    "name": "Megumin.Common",
+    "rootNamespace": "Megumin",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.megumin.explosion4unity",
+            "expression": "",
+            "define": "MEGUMIN_EXPLOSION_EXTERNAL_DLL"
+        }
+    ],
+    "noEngineReferences": false
+}

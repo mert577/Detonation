@@ -1,0 +1,17 @@
+﻿<Solution>
+  <Project Path="Megumin.AI.BehaviorTree.csproj" />
+  <Project Path="Megumin.AI.BehaviorTree.Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Megumin.Binding.csproj" />
+  <Project Path="Danqzq.LeaderboardCreator.csproj" />
+  <Project Path="Megumin.Serialization.csproj" />
+  <Project Path="Megumin.Common.csproj" />
+  <Project Path="Assembly-CSharp-firstpass.csproj" />
+  <Project Path="Megumin.Reflection.csproj" />
+  <Project Path="Megumin.AI.csproj" />
+  <Project Path="Megumin.Perception.csproj" />
+  <Project Path="LeaderboardCreatorEditor.csproj" />
+  <Project Path="Megumin.Binding.Editor.csproj" />
+  <Project Path="Megumin.Serialization.Editor.csproj" />
+  <Project Path="Megumin.Reflection.Editor.csproj" />
+</Solution>

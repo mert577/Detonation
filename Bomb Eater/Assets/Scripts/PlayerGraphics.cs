@@ -21,27 +21,32 @@ public class PlayerGraphics : MonoBehaviour
     [SerializeField] AudioSource audioSource;
 
 
+    public void PlayHurtAnimation()
+    {
+        graphicsObject.transform.DORewind();
+        graphicsObject.transform.DOPunchScale(Vector3.one * .8f, 0.3f);
+    }
 
-
-    public void PlayHealthAnimation(){
+    public void PlayHealthAnimation()
+    {
         healthAnimation.SetActive(true);
         healthAnimation.transform.position = transform.position;
-        healthAnimation.transform.DOMoveY(transform.position.y+ moveAmount,animationTime).SetEase(Ease.OutQuint).OnComplete( () => healthAnimation.SetActive(false));
+        healthAnimation.transform.DOMoveY(transform.position.y + moveAmount, animationTime).SetEase(Ease.OutQuint).OnComplete(() => healthAnimation.SetActive(false));
         healthAnimation.GetComponent<TextMeshPro>().DOFade(0, animationTime);
         audioSource.PlayOneShot(healSound);
-        
+
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

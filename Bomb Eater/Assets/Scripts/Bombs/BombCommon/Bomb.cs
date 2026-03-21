@@ -108,7 +108,7 @@ public class Bomb : MonoBehaviour
         Camera.main.DOShakePosition(.25f, .3f).OnComplete(() => Camera.main.transform.position = new Vector3(0, 0, -10));
         graphics.SetActive(false);
         GetComponent<Rigidbody2D>().isKinematic = true;
-        GetComponent<BombMovement>().StopMoving();
+        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         GameObject p = Instantiate(explodeParticle, transform.position, Quaternion.identity);
         Destroy(p, 1f);
        

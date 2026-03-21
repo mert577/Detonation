@@ -9,6 +9,10 @@ public class ProgressBar : MonoBehaviour
     [SerializeField] Image image;
     private void Update()
     {
-       image.fillAmount = (BombSpawner.instance.waitTime -BombSpawner.instance.timer) / BombSpawner.instance.waitTime ;
+        if (BombSpawner.instance)
+        {
+            image.fillAmount = (BombSpawner.instance.waitTime - BombSpawner.instance.timer) / BombSpawner.instance.waitTime;
+
+        }
     }
 }
