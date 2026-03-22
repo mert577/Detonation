@@ -15,8 +15,19 @@ public class BombTarget : Bomb
 
     public override void Explode()
     {
-        target = GameObject.Find("Player").transform;
+        if (target == null)
+        {
+            target = GetPlayerTransform();
+        }
+
         base.Explode();
+
+        if (target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         for (int i = -bulletCount/2; i < (bulletCount/2)+1; i++)
         {
 

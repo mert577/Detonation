@@ -17,6 +17,10 @@ public class PlayerGraphics : MonoBehaviour
     [SerializeField] AudioClip healSound;
     [SerializeField] AudioSource audioSource;
 
+    [SerializeField] public SpriteRenderer playerCoreSpriteRenderer;
+    [SerializeField]public  ParticleSystem playerShellParticles;
+    [SerializeField] public ParticleSystem playerTrailParticles;
+
     public void PlayHurtAnimation()
     {
         graphicsObject.transform.DORewind();

@@ -1,241 +1,66 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement")]
+    [SerializeField] float maxSpeed = 10f;
+    [SerializeField] float accelerationForce = 40f;
 
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
+    PlayerDash playerDash;
+    bool controlLocked;
 
-    public Vector2 input;
+    public Vector2 Input { get; private set; }
+    public bool CanControl => !controlLocked && GameManager.instance != null && GameManager.instance.gameState == GameState.Playing;
 
-    public float maxSpeed;
+    public float dashCoolDownTimer
+    {
+        get => playerDash != null ? playerDash.CooldownTimer : 0f;
+        set
+        {
+            if (playerDash != null)
+            {
+                playerDash.CooldownTimer = value;
+            }
+        }
+    }
 
-    public float accelerationForce;
+    public bool dashing => playerDash != null && playerDash.IsDashing;
 
-    public bool dashing;
-
-    public float dashForce;
-
-    public float dashDrag;
-    public float dashTime;
-
-    //public ParticleSystem DashParticles;
-
-    public float rotateSpeed;
-
-    public GameObject playerGraphics;
-    SpriteRenderer playerSpriteRenderer;
-
-    public float dashCooldown;
-
-    public float dashCoolDownTimer;
-    bool control= true;
-    public Color dashColor;
-
-    public int maxDashes;
-
-    public int dashesLeft;
-
-    public GameObject ableToDashParticles;
-
-    public GameObject afterImage;
-    Color originalColor;
-
-    BombDefuser defuser;
-
-    Vector2 originalSize;
-    public ParticleSystem trailParticles;
-
-    [SerializeField]
-    bool lastInputWasGamepad = false;
-
-    private void Awake()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        originalSize = transform.localScale;
-        defuser = transform.GetChild(1).GetComponent<BombDefuser>();
-        if (playerGraphics != null)
-        {
-            playerSpriteRenderer = playerGraphics.GetComponent<SpriteRenderer>();
-        }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        dashesLeft = maxDashes;
-        if (playerSpriteRenderer != null)
-        {
-            originalColor = playerSpriteRenderer.color;
-        }
+        playerDash = GetComponent<PlayerDash>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        if(Input.GetKeyDown(KeyCode.Space)){
-            lastInputWasGamepad = false;
-        }
-        else if(Input.GetKeyDown(KeyCode.Joystick1Button3)){
-            lastInputWasGamepad = true;
-        }
-
-        if(GameManager.instance.gameState == GameState.Playing)
-        {
-            control = true;
-        }
-        else
-        {
-            control = false;
-        }
-
-        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        input = Vector2.ClampMagnitude(input, 1f);
-
-        playerGraphics.transform.Rotate(Vector3.forward * Time.deltaTime * rotateSpeed);
-
-        if (!dashing)
-        {
-
-            if (Input.GetButtonDown("Jump") && dashCoolDownTimer  <= 0)
-            {
-                StartCoroutine(Dash());
-            }
-        }
-
-        HandleDashCooldown();
-
-        if (!(dashCoolDownTimer <= 0) && !dashing)
-        {
-
-            if (playerSpriteRenderer != null)
-            {
-                playerSpriteRenderer.color = dashColor;
-            }
-        }
-        else
-        {
-            if (playerSpriteRenderer != null)
-            {
-                playerSpriteRenderer.color = originalColor;
-            }
-        }
-
+        Input = CanControl
+            ? Vector2.ClampMagnitude(new Vector2(UnityEngine.Input.GetAxisRaw("Horizontal"), UnityEngine.Input.GetAxisRaw("Vertical")), 1f)
+            : Vector2.zero;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        if (!dashing)
+        if (dashing)
         {
-
-            if (!control)
-            {
-                input = Vector2.zero;
-            }
-            float accelerationForceModifier = 1f;
-            if (lastInputWasGamepad)
-            {
-               // accelerationForceModifier = 2f;
-            }
-            rb.AddForce(accelerationForce * input*accelerationForceModifier);
-            rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxSpeed);
-
+            return;
         }
 
+        rb.AddForce(accelerationForce * Input);
+        rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxSpeed);
     }
 
-    void HandleDashCooldown()
-    {
-
-        float oldTime = dashCoolDownTimer;
-        dashCoolDownTimer -= Time.deltaTime;
-        dashCoolDownTimer = Mathf.Clamp(dashCoolDownTimer, 0f, Mathf.Infinity);
-
-        if(oldTime>0 && dashCoolDownTimer <= 0)
-        {
-            GameObject p = Instantiate(ableToDashParticles, transform);
-            dashesLeft = maxDashes;
-            Destroy(p, 1f);
-
-        }
-
-    }
-
-    IEnumerator Dash()
-    {
-
-        GetComponent<PlayerHealth>().invincibilityTimer = dashTime+0.12f;
-        dashing = true;
-
-        dashesLeft--;
-
-        if (dashesLeft <= 0)
-        {
-            dashesLeft = 0;
-            dashCoolDownTimer = dashCooldown;
-        }
-
-        playerGraphics.transform.DORewind();
-        playerGraphics.transform.DOPunchScale(originalSize * 1.35f,dashTime);
-
-        defuser.ableToDefuse = true;
-        float drag = rb.linearDamping;
-        Vector2 direction;
-        if (defuser.closestBomb != null)
-        {
-
-            direction = defuser.closestBomb.position - transform.position;
-            direction.Normalize();
-        }
-        else
-        {
-            direction = input;
-        }
-
-        rb.linearVelocity =  dashForce * direction;
-//        Debug.Log(rb.velocity);
-         var em = trailParticles.emission;
-         em.enabled =false;
-        rb.linearDamping = dashDrag;
-        float timer =dashTime;
-        StartCoroutine(SpawnAfterImages(3));
-        while (timer > 0)
-        {
-            float t = timer / dashTime;
-
-            timer -= Time.deltaTime;
-            rb.linearDamping -= (dashDrag - drag) / (dashTime / Time.deltaTime);
-            yield return null;
-        }
-        em.enabled = true;
-        //rb.velocity = Vector2.zero;
-        rb.linearDamping = drag;
-        dashing = false;
-        transform.localScale = (originalSize);
-        defuser.ableToDefuse = false;
-
-    }
-
-    IEnumerator SpawnAfterImages(int count)
-    {
-        for(int i = 0; i < count; i++)
-        {
-            Instantiate(afterImage, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(dashTime / count);
-        }
-
-    }
     public void LoseControl(float time)
     {
-        StartCoroutine(_LoseControl(time));
+        StartCoroutine(LoseControlRoutine(time));
     }
 
-    IEnumerator _LoseControl(float time)
+    IEnumerator LoseControlRoutine(float time)
     {
-        control = false;
+        controlLocked = true;
         yield return new WaitForSeconds(time);
-        control = true;
-
+        controlLocked = false;
     }
 }

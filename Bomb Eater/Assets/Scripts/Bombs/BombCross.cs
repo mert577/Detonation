@@ -23,9 +23,8 @@ public class BombCross : Bomb
 
     public override void Explode()
     {
-
-        Transform player = GameObject.Find("Player").transform;
-        Vector3 playerPos = player.position;
+        Transform player = GetPlayerTransform();
+        Vector3 playerPos = player != null ? player.position : transform.position + Vector3.right;
         base.Explode();
         StartCoroutine(DotSpawn());
 

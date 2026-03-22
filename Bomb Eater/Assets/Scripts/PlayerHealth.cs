@@ -122,6 +122,11 @@ public class PlayerHealth : MonoBehaviour
 
         GetComponent<PlayerGraphics>().graphicsObject.SetActive(false);
         GetComponent<PlayerMovement>().enabled = false;
+        MonoBehaviour playerDash = GetComponent("PlayerDash") as MonoBehaviour;
+        if (playerDash != null)
+        {
+            playerDash.enabled = false;
+        }
         GetComponentInChildren<BombDefuser>().enabled = false;
 
         yield return new WaitForSeconds(2f);

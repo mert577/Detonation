@@ -26,6 +26,10 @@ public class BombSpawner : MonoBehaviour
     public float timer;
 
     public bool spawning;
+    [SerializeField] Transform playerTransform;
+
+    public Transform PlayerTransform => playerTransform;
+
     private void Awake()
     {
         if (instance != null)
@@ -39,6 +43,7 @@ public class BombSpawner : MonoBehaviour
     void Start()
     {
         bombsToSpawn = easyBombPool;
+        CachePlayerTransform();
 
      //   bounds.center = transform.position;
       //  bounds.extents = transform.localScale- Vector3.one*.4f;
@@ -46,6 +51,20 @@ public class BombSpawner : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    void CachePlayerTransform()
+    {
+        if (playerTransform != null)
+        {
+            return;
+        }
+
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            playerTransform = playerObject.transform;
+        }
+    }
 
     public void StartSpawning()
     {
@@ -94,11 +113,13 @@ public class BombSpawner : MonoBehaviour
         timer = waitTime;
         ProgressManager.instance.waveNumber += 1;
         CalculateBombPool();
+        CachePlayerTransform();
         for (int i = 0; i < Random.Range(minWaveSize, maxWaveSize + 1); i++)
         {
             Bomb randomBomb = bombsToSpawn[Random.Range(0, bombsToSpawn.Count)];
             Vector2 randomPos = UtilityClass.GetRandomPointInBounds(bounds);
-            Instantiate(randomBomb, randomPos, Quaternion.identity);
+            Bomb bomb = Instantiate(randomBomb, randomPos, Quaternion.identity);
+            bomb.SetPlayerTransform(playerTransform);
 
             yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
         }

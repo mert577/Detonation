@@ -20,8 +20,17 @@ public class BombDefuser : MonoBehaviour
 
     [SerializeField]
     SpriteRenderer rangeSprite;
+    [SerializeField]
+    PlayerDash playerDash;
 
-    // Start is called before the first frame update
+    void Awake()
+    {
+        if (playerDash == null)
+        {
+            playerDash = GetComponentInParent<PlayerDash>();
+        }
+    }
+
     void Start()
     {
         rangeSprite.transform.localScale = new Vector3(defuseRange*2, defuseRange*2, 1);
@@ -61,7 +70,10 @@ public class BombDefuser : MonoBehaviour
             {
                 ProgressManager.instance.OnBombDefuse();
 
-                GetComponentInParent<PlayerMovement>().dashCoolDownTimer = 0.1f;
+                if (playerDash != null)
+                {
+                    playerDash.RestoreDashesFromDefuse();
+                }
                 DOTween.To(() => Time.timeScale, SetTimeScale, .05f, 0.06f).OnComplete(() => Time.timeScale = 1f).SetUpdate(true);
                 bomb.Defuse();
             }
@@ -86,7 +98,10 @@ public class BombDefuser : MonoBehaviour
             {
                 ProgressManager.instance.OnBombDefuse();
                 DOTween.To(() => Time.timeScale, SetTimeScale, .05f, 0.06f).OnComplete(() => Time.timeScale = 1f).SetUpdate(true);
-                GetComponentInParent<PlayerMovement>().dashCoolDownTimer = 0.1f;
+                if (playerDash != null)
+                {
+                    playerDash.RestoreDashesFromDefuse();
+                }
                 bomb.Defuse();
 
             }
