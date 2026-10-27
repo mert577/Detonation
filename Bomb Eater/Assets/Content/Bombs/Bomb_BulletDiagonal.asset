@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d66f2bb7ed2194090e7457c499377f, type: 3}
+  m_Name: Bomb_BulletDiagonal
+  m_EditorClassIdentifier: Assembly-CSharp::BombDefinition
+  sprite: {fileID: 7292913100277989281, guid: 0302f1c12577127489ee4a18727d88de, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  prefabOverride: {fileID: 0}
+  fuseTime: 2.3
+  warningTime: 1
+  canMove: 1
+  moveSpeed: 5
+  patterns:
+  - {fileID: 11400000, guid: e292ca209cdf4e643866734b755327e7, type: 2}
+  explodeParticle: {fileID: 198039705023584409, guid: e29e8300991a6c24e9954bc362a2be5e, type: 3}
+  explodeShake:
+    duration: 0.25
+    strength: 0.3
+    vibrato: 10
+  defuseParticle: {fileID: 198039705023584409, guid: 16cce1f81a1897a49af35c92853ab614, type: 3}
+  defuseShake:
+    duration: 0.1
+    strength: 0.5
+    vibrato: 10

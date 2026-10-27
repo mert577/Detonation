@@ -22,7 +22,7 @@ public class LeaderboardPanel : MonoBehaviour
     public GameObject errorPanel;
 
      private void OnEnable() {
-       scoreText.text = "Score: " + GameManager.instance.score.ToString();
+       scoreText.text = "Score: " + GameManager.instance.Score.ToString();
     }
 
     public void UpdateLeaderBoardVisuals(Entry[] leaderboardData){
@@ -51,7 +51,7 @@ public class LeaderboardPanel : MonoBehaviour
 
     public void SubmitLeaderBoardEntry(){
         string username = usernameInputField.text;
-        int score = GameManager.instance.score;
+        int score = GameManager.instance.Score;
         OnSubmitLeaderBoardEntry.Invoke(username, score);
 
     }

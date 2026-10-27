@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8212951312a1a864b99fa2cb35f937ba, type: 3}
+  m_Name: EndlessDifficulty
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyProfile
+  baseWaveInterval: 2.6
+  waveIntervalJitter: 0.2
+  bombSpawnStagger: {x: 0.1, y: 0.3}
+  rushCycleLength: 7
+  rushWavesPerCycle: 2
+  rushIntervalMultiplier: 0.75
+  tiers:
+  - name: Easy
+    startWave: 0
+    bombsPerWave: {x: 3, y: 5}
+    movementChance: 0
+    projectileSpeedMultiplier: 1
+    waveIntervalMultiplier: 1
+    missilesEnabled: 0
+    bombPool:
+    - bomb: {fileID: 11400000, guid: d4f330851b073db42bfd80ef1ddf9f38, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: 38e6520779b8efd4e95433ac61732908, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: b982701d5ca9a6e4ca2144634bf0aa0e, type: 2}
+      weight: 1
+  - name: Medium
+    startWave: 15
+    bombsPerWave: {x: 3, y: 5}
+    movementChance: 0.35
+    projectileSpeedMultiplier: 1.1
+    waveIntervalMultiplier: 0.9
+    missilesEnabled: 0
+    bombPool:
+    - bomb: {fileID: 11400000, guid: d4f330851b073db42bfd80ef1ddf9f38, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: 38e6520779b8efd4e95433ac61732908, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: b982701d5ca9a6e4ca2144634bf0aa0e, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: cf3b4f31ea6b0e04881d0fb5bd852f43, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: 8d6613450b091a6438b643b89252ed57, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: 45ccfed09bb5a2346ac21bbbb0a56048, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: d42d9ad50bf11ca46809eaed7fe66ecc, type: 2}
+      weight: 1
+  - name: Hard
+    startWave: 25
+    bombsPerWave: {x: 3, y: 5}
+    movementChance: 0.65
+    projectileSpeedMultiplier: 1.25
+    waveIntervalMultiplier: 0.85
+    missilesEnabled: 1
+    bombPool:
+    - bomb: {fileID: 11400000, guid: 360b3934b94e56a4da56fc3591ab3f44, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: cf3b4f31ea6b0e04881d0fb5bd852f43, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: b982701d5ca9a6e4ca2144634bf0aa0e, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: 8d6613450b091a6438b643b89252ed57, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: b2a81775518cd8d44b6e6b600c624cb7, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: 3433bdc94bbb95f46ae17696258e412f, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: d42d9ad50bf11ca46809eaed7fe66ecc, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: 85d6e0cab2da99b4c9a937b44c80e627, type: 2}
+      weight: 1
+  - name: Extreme
+    startWave: 40
+    bombsPerWave: {x: 3, y: 5}
+    movementChance: 0.85
+    projectileSpeedMultiplier: 1.4
+    waveIntervalMultiplier: 0.75
+    missilesEnabled: 1
+    bombPool:
+    - bomb: {fileID: 11400000, guid: d4f330851b073db42bfd80ef1ddf9f38, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: 38e6520779b8efd4e95433ac61732908, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: 360b3934b94e56a4da56fc3591ab3f44, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: cf3b4f31ea6b0e04881d0fb5bd852f43, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: b982701d5ca9a6e4ca2144634bf0aa0e, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: b2a81775518cd8d44b6e6b600c624cb7, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: 8d6613450b091a6438b643b89252ed57, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: 3433bdc94bbb95f46ae17696258e412f, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: d42d9ad50bf11ca46809eaed7fe66ecc, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: ab7f88db8f981ed4cb8f6c1dfe92fe14, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: c517aa06b32d82543b6fa2552d4fc897, type: 2}
+      weight: 1
+    - bomb: {fileID: 11400000, guid: 85d6e0cab2da99b4c9a937b44c80e627, type: 2}
+      weight: 1

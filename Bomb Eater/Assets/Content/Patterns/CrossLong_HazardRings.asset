@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7740fd45f5d14c4e97d5dabd315dd1b, type: 3}
+  m_Name: CrossLong_HazardRings
+  m_EditorClassIdentifier: Assembly-CSharp::HazardRingsPattern
+  hazard: {fileID: 3685030776475696404, guid: 955db5a5fa5257f47a5f72d9c6bd6436, type: 3}
+  rings: 8
+  arms: 4
+  armsAddedPerRing: 0
+  ringSpacing: 1
+  timeBetweenRings: 0.05
+  aimAtPlayer: 0
+  angleOffset: 0

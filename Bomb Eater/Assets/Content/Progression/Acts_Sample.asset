@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5dfd42ffa66a64ea34b7aa97345402, type: 3}
+  m_Name: Acts_Sample
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterConfiguration
+  acts:
+  - actName: Act 1
+    arenaGeometryPrefab: {fileID: 0}
+    actStartEffectPrefab: {fileID: 0}
+    projectileSpeedMultiplier: 1
+    encounters:
+    - encounterName: Warm up
+      bombSpawns:
+      - bomb: {fileID: 11400000, guid: d4f330851b073db42bfd80ef1ddf9f38, type: 2}
+        position: {x: -4, y: 4}
+        randomPosition: 0
+        delayBeforeSpawn: 0.3
+        moving: 0
+      - bomb: {fileID: 11400000, guid: d4f330851b073db42bfd80ef1ddf9f38, type: 2}
+        position: {x: 4, y: 4}
+        randomPosition: 0
+        delayBeforeSpawn: 0.3
+        moving: 0
+      - bomb: {fileID: 11400000, guid: d4f330851b073db42bfd80ef1ddf9f38, type: 2}
+        position: {x: 4, y: -4}
+        randomPosition: 0
+        delayBeforeSpawn: 0.3
+        moving: 0
+      - bomb: {fileID: 11400000, guid: d4f330851b073db42bfd80ef1ddf9f38, type: 2}
+        position: {x: -4, y: -4}
+        randomPosition: 0
+        delayBeforeSpawn: 0.3
+        moving: 0
+      waitForBombClear: 1
+      delayBeforeNextEncounter: 1
+    - encounterName: Crossfire
+      bombSpawns:
+      - bomb: {fileID: 11400000, guid: cf3b4f31ea6b0e04881d0fb5bd852f43, type: 2}
+        position: {x: 0, y: 0}
+        randomPosition: 0
+        delayBeforeSpawn: 0.5
+        moving: 0
+      - bomb: {fileID: 11400000, guid: 38e6520779b8efd4e95433ac61732908, type: 2}
+        position: {x: -5, y: 0}
+        randomPosition: 0
+        delayBeforeSpawn: 0.3
+        moving: 0
+      - bomb: {fileID: 11400000, guid: 38e6520779b8efd4e95433ac61732908, type: 2}
+        position: {x: 5, y: 0}
+        randomPosition: 0
+        delayBeforeSpawn: 0
+        moving: 0
+      waitForBombClear: 1
+      delayBeforeNextEncounter: 1
+    - encounterName: Rain
+      bombSpawns:
+      - bomb: {fileID: 11400000, guid: 8d6613450b091a6438b643b89252ed57, type: 2}
+        position: {x: 0, y: 0}
+        randomPosition: 1
+        delayBeforeSpawn: 0.4
+        moving: 0
+      - bomb: {fileID: 11400000, guid: 8d6613450b091a6438b643b89252ed57, type: 2}
+        position: {x: 0, y: 0}
+        randomPosition: 1
+        delayBeforeSpawn: 0.4
+        moving: 1
+      - bomb: {fileID: 11400000, guid: b982701d5ca9a6e4ca2144634bf0aa0e, type: 2}
+        position: {x: 0, y: 0}
+        randomPosition: 1
+        delayBeforeSpawn: 0.4
+        moving: 0
+      - bomb: {fileID: 11400000, guid: 8d6613450b091a6438b643b89252ed57, type: 2}
+        position: {x: 0, y: 0}
+        randomPosition: 1
+        delayBeforeSpawn: 0.4
+        moving: 1
+      - bomb: {fileID: 11400000, guid: d42d9ad50bf11ca46809eaed7fe66ecc, type: 2}
+        position: {x: 0, y: 0}
+        randomPosition: 1
+        delayBeforeSpawn: 0.4
+        moving: 0
+      waitForBombClear: 0
+      delayBeforeNextEncounter: 2
+  - actName: Act 2
+    arenaGeometryPrefab: {fileID: 0}
+    actStartEffectPrefab: {fileID: 0}
+    projectileSpeedMultiplier: 1.2
+    encounters:
+    - encounterName: Ring
+      bombSpawns:
+      - bomb: {fileID: 11400000, guid: c517aa06b32d82543b6fa2552d4fc897, type: 2}
+        position: {x: 0, y: 0}
+        randomPosition: 0
+        delayBeforeSpawn: 0.2
+        moving: 0
+      - bomb: {fileID: 11400000, guid: b2a81775518cd8d44b6e6b600c624cb7, type: 2}
+        position: {x: -6, y: 6}
+        randomPosition: 0
+        delayBeforeSpawn: 0.2
+        moving: 0
+      - bomb: {fileID: 11400000, guid: b2a81775518cd8d44b6e6b600c624cb7, type: 2}
+        position: {x: 6, y: -6}
+        randomPosition: 0
+        delayBeforeSpawn: 0.2
+        moving: 0
+      waitForBombClear: 1
+      delayBeforeNextEncounter: 1.5
+  loopActs: 1
+  initialDelay: 1

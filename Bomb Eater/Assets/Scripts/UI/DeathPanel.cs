@@ -21,9 +21,9 @@ public class DeathPanel : MonoBehaviour
     public float animationTime = 0.5f;
 
     public void DeathPanelEnterAnimation(){
-        timeSurvivedText.text = GameManager.instance.timeSurvived.ToString() +"s";
-        bombsDefusedText.text = ProgressManager.instance.bombsDefused.ToString();
-        scoreText.text = GameManager.instance.score.ToString();
+        timeSurvivedText.text = GameManager.instance.TimeSurvived + "s";
+        bombsDefusedText.text = GameManager.instance.BombsDefused.ToString();
+        scoreText.text = GameManager.instance.Score.ToString();
         StartCoroutine(_());
 
         IEnumerator _(){
